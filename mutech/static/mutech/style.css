@@ -1,0 +1,44 @@
+
+body {
+background-color:#303030;
+
+}
+
+.jumbotron1 {
+	background-color:#FFF6D9;
+
+}
+
+.midDiv {background-color:#FFFFFF ;
+		 border-radius: 10px;
+		 min-height:450px;
+	}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+color:#f4b500;
+} 		
+
+.footer {background-color:#FFFFFF ;
+	border-radius: 10px;
+
+}
+/*body {
+    background: white url("images/images.jpeg") no-repeat right bottom;font-family: "Times New Roman";
+text-decoration: line-through;
+
+}
+#pic {FFCE41 yellow  cream-FFF6D9
+	background: white url("images/images.jpeg") ;
+
+}*/
+
+.navactive{
+    a.current { color: red; }
+}
