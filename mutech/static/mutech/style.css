@@ -1,7 +1,9 @@
 
-.midDiv {background-color:#FFFFFF ;
-		 border-radius: 10px;
-		 min-height:548px;
+.midDiv {background-color:#AEAEAE;
+		 min-height:580px;
 		 padding-top:  5%;
 		 position: relative;
 	}
+body{
+	overflow: hidden;
+}
