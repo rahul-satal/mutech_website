@@ -1,7 +1,13 @@
 
+<<<<<<< HEAD
 .midDiv {background-color:#AEAEAE;
 		 min-height:580px;
 		 padding-top:  5%;
+=======
+.midDiv {background-color:#AEAEAE ;
+		 min-height:548px;
+		 padding-top:  8.2%;
+>>>>>>> dbfee33f0a616016b377694f74b94401178c6f66
 		 position: relative;
 	}
 body{
