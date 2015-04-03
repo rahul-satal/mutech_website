@@ -1,12 +1,12 @@
 from django.contrib import admin
-from mutech.models import News, ProfilePic, Branch, Video, Image, Training, Project, Product
+from mutech.models import news, profilePic, branch, video, image, training, project, product
 # Register your models here.
 
-admin.site.register(News)
-admin.site.register(ProfilePic)
-admin.site.register(Branch)
-admin.site.register(Video)
-admin.site.register(Image) 
-admin.site.register(Training)
-admin.site.register(Project)
-admin.site.register(Product)
+admin.site.register(news)
+admin.site.register(profilePic)
+admin.site.register(branch)
+admin.site.register(video)
+admin.site.register(image) 
+admin.site.register(training)
+admin.site.register(project)
+admin.site.register(product)

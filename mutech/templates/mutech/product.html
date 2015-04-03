@@ -3,7 +3,8 @@
 
 <!-- Custom CSS -->
 <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet">
-	
+
+
 	<div class="midDiv">
     
     <!-- Page Content -->
@@ -16,8 +17,7 @@
         </button>
         
 
-        <!-- Button trigger modal -->
-            <a class="btn btn-primary btn-lg">Launch demo modal</a>
+        
         <!-- Projects Row -->
         <div class="row">
             <div class="col-md-4 img-portfolio">
@@ -25,7 +25,7 @@
                     <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
                 </a>
                 <h3>
-                    Project Name
+                  {{ product_row.product_title }}  Project Name
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
             </div>
@@ -157,11 +157,10 @@
           <h4 class="modal-title">Modal title</h4>
         </div>
         <div class="modal-body">
-          ...
+       hello world!!!!!!!!
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
