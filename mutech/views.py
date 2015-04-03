@@ -1,6 +1,13 @@
-from django.shortcuts import render
-from mutech.models import product
-from django.shortcuts import render_to_response
+from django.shortcuts import render, get_object_or_404, render_to_response
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.utils import timezone
+from django.core import serializers
+from django.template import RequestContext, loader, context
+from django import forms
+import json
+import mutech.models
+from mutech.models import training, project, product
 
 
 
@@ -13,14 +20,16 @@ def header(request):
 def footer(request):
 	return render(request, 'mutech/footer.html')
 
-def project(request):
+def project_info(request):
 	return render(request, 'mutech/project.html')
 
-def training(request):
+def training_info(request):
 	return render(request, 'mutech/training.html')
 
-def product(request):
-	return render(request, 'mutech/product.html')
+def product_info(request):
+	product_qlist=product.objects.all()
+	context = {'product_qlist':product_qlist}
+	return render(request, 'mutech/product.html', context)
 
 def aboutus(request):
 	return render(request, 'mutech/aboutus.html')
