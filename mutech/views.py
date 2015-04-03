@@ -18,14 +18,10 @@ def project(request):
 
 def training(request):
 	return render(request, 'mutech/training.html')
-'''
+
 def product(request):
-	product_name = product.product_title.filter(id = 1)
-	context = {'product_key':product_name}
 	return render(request, 'mutech/product.html')
-'''
-def product(request):	
-	return render('mutech/product.html')
+
 def aboutus(request):
 	return render(request, 'mutech/aboutus.html')
 
