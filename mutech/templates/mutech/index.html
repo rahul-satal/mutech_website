@@ -1,12 +1,21 @@
 {% load staticfiles %}
 <div>{% include "mutech/header.html" %}</div>
-<div class="midDiv col-md-12 col-sm-12" style="padding-top:10%; overflow: hidden;">
- 	<div class="container">
+
+<div class="midDiv col-md-12 col-sm-12" style="padding-top:13%; overflow: hidden;">
 
 <!-- Product Slider - START -->
-<div class="container">
+<div class="row">
+<div class="col-md-1" style="margin-top:10%;">
+                        <div class="controls pull-right hidden-xs" style="text-align: center;">
+                    <a class="left fa fa-chevron-left btn btn" href="#carousel-example"
+                        data-slide="prev" style="color:black;vertical-align: middle"></a>
+                </div>
+</div>
+<div class="container col-md-10">
     <div class="row">
-        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+        
+
+        <div id="carousel-example" class="carousel slide hidden-xs col-md-12" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
@@ -114,7 +123,7 @@
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
-                                            <h5>Another product</h5>
+                                            <h5>Another productD</h5>
                                             <h5 class="price-text-color">$3.75</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
@@ -152,7 +161,7 @@
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
-                                            <h5>Product</h5>
+                                            <h5>ProductE</h5>
                                             <h5 class="price-text-color">$7.17</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
@@ -185,7 +194,7 @@
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
-                                            <h5>Product</h5>
+                                            <h5>Product F</h5>
                                             <h5 class="price-text-color">$19.99</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
@@ -217,7 +226,7 @@
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
-                                            <h5>Product</h5>
+                                            <h5>Product G</h5>
                                             <h5 class="price-text-color">$1.99</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
@@ -250,7 +259,7 @@
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
-                                            <h5>Product</h5>
+                                            <h5>Product H</h5>
                                             <h5 class="price-text-color">$1.09</h5>
                                         </div>
                                         <div class="rating hidden-sm col-md-6">
@@ -283,6 +292,13 @@
                 </div>
             </div>
         </div>
+        </div>
+            </div>
+                            <div class="controls pull-right hidden-xs col-md-1" style="margin-top:10%;">
+                    <a class="right fa fa-chevron-right btn" href="#carousel-example"
+                            data-slide="next" style="color:black"></a>
+                </div>
+            </div>
     </div>
 </div>
 
