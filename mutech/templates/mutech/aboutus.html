@@ -1,11 +1,18 @@
 {% load staticfiles %}
-
-<div>{% include "mutech/header.html" %}</div>
-	
-	<div class="midDiv">
-		
-    <!-- Custom CSS -->
-    <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet">    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>About us</title>
+	<div>{% include "mutech/header.html" %}</div>
+	<link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet">
+</head>
+<body>
+	<div class="midDiv">    
 
     <!-- Page Content -->
     <div class="container">
@@ -93,5 +100,7 @@
             </div>
         </div>
 	</div>
-
-<div>{% include "mutech/footer.html" %}</div>
+</div>
+	<div>{% include "mutech/footer.html" %}</div>
+</body>
+</html>
