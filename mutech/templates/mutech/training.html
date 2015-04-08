@@ -1,15 +1,18 @@
 {% load staticfiles %}
-<div>{% include "mutech/header.html" %}</div>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-<style type="text/css">
-	 .slidebar_a, .slidebar_a:hover, .slidebar_a:focus, .slidebar_a:active, .slidebar_a:active 
+    <title>Training</title>
+    <div>{% include "mutech/header.html" %}</div>
+    <link href="{% static 'mutech/css/project_dropdown_menu2.css' %}" rel="stylesheet">
+    <link href="{% static 'mutech/css/project_dropdown_menu1.css' %}" rel="stylesheet">
+	<style type="text/css">
+		 .slidebar_a, .slidebar_a:hover, .slidebar_a:focus, .slidebar_a:active, .slidebar_a:active 
 		 	{
 		    background-color: white ;
  		    color:#337AB7;
@@ -23,11 +26,8 @@
 			min-height:580px;
 			padding-top:  8.2%;
 			}
-
-</style>
-
- 	<link href="{% static 'mutech/css/project_dropdown_menu2.css' %}" rel="stylesheet">
-    <link href="{% static 'mutech/css/project_dropdown_menu1.css' %}" rel="stylesheet">
+	</style>
+</head>
 <body>
 
     <div id="wrapper" class="midDiv_project"s>
@@ -190,7 +190,6 @@
     </div><!-- /.modal-dialog -->
   </div>
 <!-- /.modal -->
-
-</body>
-
 <div>{% include "mutech/footer.html" %}</div>
+</body>
+</html>
