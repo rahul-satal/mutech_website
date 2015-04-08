@@ -1,4 +1,7 @@
 from django.db import models
+from django.core.files.storage import FileSystemStorage
+
+fs = FileSystemStorage(location='/media/photos')
 
 class news(models.Model):
 	news_title = models.CharField(max_length=50)
@@ -52,17 +55,17 @@ class project(models.Model):
 	branch = models.ForeignKey(branch)
 
 	def __unicode__(self):              # __unicode__ on Python 2
-        	return str(self.fs_id)
+        	return str(self.project_title)
 
 
 class product(models.Model):
 	product_title = models.CharField(max_length=50)
-	product_image = models.ImageField(upload_to="images")
+	product_image = models.ImageField(upload_to="documents")
 	product_desc = models.CharField(max_length=200)
 	product_duration = models.CharField(max_length=50)
 
 	def __unicode__(self):              # __unicode__ on Python 2
-        	return str(self.fs_id)		
+        	return str(self.product_title)		
 
 
 	
