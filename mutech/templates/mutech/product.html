@@ -10,14 +10,15 @@
     <title>Products</title>
     <div>{% include "mutech/header.html" %}</div>
     <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet">
-<!-- Custom CSS -->
 </head>
 <body>
 	<div class="midDiv">
+    <!--
     {% for q in product_qlist %}
-    <img class="img-responsive img-hover" src="/media/{{q.product_image }}" alt="Error"/>
+    <img  src="../../media/{{ q.product_image }}" alt="Error"/>
     {% endfor %}
-    <!-- Page Content -->
+     Page Content -->
+    
     <div class="container">
     	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
@@ -30,12 +31,11 @@
             {% for q in product_qlist %}
                  <div class="col-md-4 img-portfolio">
                 <a data-toggle="modal" href="#myModal1">
-                <img class="img-responsive img-hover" src="mutech/media/{{ q.product_image }}" alt="Error"/>
-                </a>    
+                <img class="img-responsive img-hover" src="../../../media/{{q.product_image}}" alt="Error" height="200px" width="200px" />    
                     <h3>
                         {{ q.product_title }}
                     </h3>
-                
+                </a>
                 
                 <p> {{ q.product_image }}
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>

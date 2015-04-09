@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url
-
+from django.conf import settings
 from mutech import views
 
 urlpatterns = patterns('',
@@ -11,4 +11,7 @@ urlpatterns = patterns('',
     url(r'^mutech/training/$', views.training_info, name='training_info'),
     url(r'^mutech/product/$', views.product_info, name='product_info'),
     url(r'^mutech/contact/$', views.contact, name='contact'),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+        }),
 )
