@@ -9,7 +9,14 @@
     <meta name="author" content="">
     <title>Home</title>
     <div>{% include "mutech/header.html" %}</div>
-</head>>
+    <style type="text/css">
+         #slider_errow:hover{
+            color: #fff;
+            text-shadow: 1px 1px 1px #ccc;
+            font-size: 1.5em;
+             }
+    </style>
+</head>
 <body>
 	<div class="midDiv col-md-12 col-sm-12" style="padding-top:10%; overflow: hidden;">
 
@@ -17,19 +24,11 @@
 	<div class="row">
 	<div class="col-md-1" style="margin-top:10%;">
         <div class="controls pull-right hidden-xs" style="text-align: center;">
-            <a class="left fa fa-chevron-left btn btn" href="#carousel-example" data-slide="prev" style="color:black;vertical-align: middle"></a>
+            <a id="slider_errow" class="left fa fa-chevron-left btn btn" href="#carousel-example" data-slide="prev" style="color:black;vertical-align: middle"></a>
         </div>
 	</div>
 	<div class="container col-md-10">
     <div class="row">
-        
-
-
-
-
-
-
-
         <div id="carousel-example" class="carousel slide hidden-xs col-md-12" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
@@ -310,7 +309,7 @@
         </div>
             </div>
                             <div class="controls pull-right hidden-xs col-md-1" style="margin-top:10%;">
-                    <a class="right fa fa-chevron-right btn" href="#carousel-example"
+                    <a id="slider_errow" class="right fa fa-chevron-right btn" href="#carousel-example"
                             data-slide="next" style="color:black"></a>
                 </div>
             </div>

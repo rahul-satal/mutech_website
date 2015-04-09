@@ -23,16 +23,11 @@
 
         {% if product_qlist %}
             {% for q in product_qlist %}
-                 <div class="col-md-4 img-portfolio">
+
+                 <div class="col-md-4" style="border:1px solid blak;height:250px">
                 <a data-toggle="modal" href="#myModal1">
-                <img class="img-responsive img-hover" src="../../../media/{{q.product_image}}" alt="Error" height="200px" width="200px" />    
-                    <h3>
-                        {{ q.product_title }}
-                    </h3>
-                </a>
-                
-                <p> {{ q.product_image }}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <img class="img-responsive img-hover" src="../../../media/{{q.product_image}}" alt="Error" style="height:70%; width:100%" />   </a><br>
+                    <center><p>{{ q.product_title }}</p></center><br>
             </div>
             {% endfor %}
         {% endif %}
