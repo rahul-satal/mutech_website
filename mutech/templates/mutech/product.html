@@ -21,19 +21,19 @@
             <span class="icon-bar"></span>
         </button>
 
-        {% if product_qlist %}
-            {% for q in product_qlist %}
-
-                 <div class="col-md-4" style="border:1px solid blak;height:250px">
-                <a data-toggle="modal" href="#myModal1">
-                <img class="img-responsive img-hover" src="../../../media/{{q.product_image}}" alt="Error" style="height:70%; width:100%" />   </a><br>
+        {% if product_list %}
+            {% for q in product_list %}
+            
+            <div class="col-md-4" style="border:1px solid blak;height:250px">
+                <a data-toggle="modal" href="#{{ q.product_title }}">
+                <img class="img-responsive img-hover" src="../../../media/{{q.product_image}}" alt="Error" style="height:70%; width:100%" /></a><br>
                     <center><p>{{ q.product_title }}</p></center><br>
             </div>
             {% endfor %}
-        {% endif %}
+           
+                
         
         <hr>
-
         <!-- Pagination -->
         <div class="row text-center">
             <div class="col-lg-12">
@@ -62,30 +62,36 @@
                 </ul>
             </div>
         </div>
+        {% else %}
+        <center><h1>No Product found </h1></center>  
+        {% endif %}
         <!-- /.row -->
 	</div>
     <!-- /.container -->
-</div>
+    
+</div><!-- midDiv ends -->
+
+
 
 <!-- Modal -->
-  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+{% if product_list %}
+            {% for q in product_list %}
+  <div class="modal fade col-md-12 col-sm-6 " id="{{ q.product_title }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 class="modal-title">Product Name</h3>
+          <h3 class="modal-title">{{ q.product_title }}</h3>
         </div>
         <div class="modal-body" style="display:block">
-          	<div>
-                <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+            <div>
+                <img class="img-responsive" src="../../../media/{{q.product_image}}" alt="">
             </div>
             <div>
-            	<hr/>
+                <hr/>
                 <h4>Description</h4>
                 <hr/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
+                <p>{{ q.product_desc }}</p>
             </div>
         </div>
         <div class="modal-footer">
@@ -95,6 +101,11 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div>
+  {% endfor %} 
+        {% endif %}
+        
+  
+           
   <!-- /.modal -->
 
 

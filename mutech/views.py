@@ -21,15 +21,17 @@ def footer(request):
 	return render(request, 'mutech/footer.html')
 
 def project_info(request):
-	return render(request, 'mutech/project.html')
+	project_list = project.objects.all()
+	context = {'project_list':project_list }
+	return render(request, 'mutech/project.html', context)
 
 def training_info(request):
 	return render(request, 'mutech/training.html')
 
 def product_info(request):
 	#product_qlist=product.objects.values_list('product_title', flat= True)
-	product_qlist = product.objects.all()
-	context = {'product_qlist':product_qlist}
+	product_list = product.objects.all()
+	context = {'product_list':product_list}
 	return render(request, 'mutech/product.html', context)
 
 def aboutus(request):

@@ -85,6 +85,7 @@
                             <li>
                                 <a href="grid.html" class="slidebar_a">Grid</a>
                             </li>
+
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -101,6 +102,17 @@
                     <div class="container" >
   						<div class="row">
     						<h2>Projects on topic</h2>
+
+            {% if project_list %}
+            {% for q in project_list %}
+            <div class="col-md-4" style="width:25%;">
+                      <a href="#myModal1" title="Image 1" data-toggle="modal"><img src="//placehold.it/600x350" class="thumbnail img-responsive"></a>
+                    </div>
+              <h1>{{ q.project_title }}</h1>
+
+           {% endfor %}
+        {% endif %}    
+                
     						<div class="row" style="width:88%">
       							<div class="col-sm-4 col-6">
       								<a href="#myModal1" title="Image 1" data-toggle="modal"><img src="//placehold.it/600x350" class="thumbnail img-responsive"></a>
@@ -164,7 +176,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 class="modal-title">Product Name</h3>
+          <h3 class="modal-title">Project Name</h3>
         </div>
         <div class="modal-body" style="display:block;">
           	<div>
