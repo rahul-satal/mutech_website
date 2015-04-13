@@ -1,13 +1,5 @@
 from django.shortcuts import render, get_object_or_404, render_to_response
-from django.http import HttpResponse, HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from django.utils import timezone
-from django.core import serializers
-from django.template import RequestContext, loader, context
-from django import forms
-import json
-import mutech.models
-from mutech.models import training, project, product
+from mutech.models import *
 
 
 
@@ -22,8 +14,15 @@ def footer(request):
 
 def project_info(request):
 	project_list = project.objects.all()
-	context = {'project_list':project_list }
+	branch_list = branch.objects.all()
+	context = {'project_list':project_list , 'branch_list':branch_list }
 	return render(request, 'mutech/project.html', context)
+
+def project_branch_info(request):
+	branch_list = branch.objects.all()
+	context = {'branch_list':branch_list }
+	return render(request, 'mutech/project_branch_info.html', context)
+
 
 def training_info(request):
 	return render(request, 'mutech/training.html')

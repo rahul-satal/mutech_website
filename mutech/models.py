@@ -1,14 +1,18 @@
 from django.db import models
-from django.core.files.storage import FileSystemStorage
-
-fs = FileSystemStorage(location='/media/photos')
 
 class news(models.Model):
 	news_title = models.CharField(max_length=50)
-	news_desc = models.CharField(max_length=200)
+	news_desc = models.TextField(max_length=5000)
 
 	def __unicode__(self):              # __str__ on Python 3
         	return str(self.news_title)
+
+class article(models.Model):
+	article_title = models.CharField(max_length=50)
+	article_desc = models.TextField(max_length=5000)
+
+	def __unicode__(self):              # __str__ on Python 3
+        	return str(self.article_title)        	
 
 class profilePic(models.Model):
 	profilePic = models.ImageField(upload_to="images")
@@ -18,30 +22,15 @@ class profilePic(models.Model):
 
 class branch(models.Model):
     branch_title = models.CharField(max_length=50)
+    subbranch_title = models.CharField(max_length=50)
 
     def __unicode__(self):              # __str__ on Python 3
         	return str(self.branch_title)	
 
-
-class video(models.Model):
-	video_title = models.CharField(max_length=50)
-	video_link = models.CharField(max_length=200)
-
-	def __unicode__(self):              # __str__ on Python 3
-        	return str(self.video_title)
-
-class image(models.Model):
-	image = models.ImageField(upload_to="images")
-	image_title = models.CharField(max_length=50)
-
-	def __unicode__(self):              # __str__ on Python 3
-        	return str(self.image_title)
-
-
 class training(models.Model):
 	training_title = models.CharField(max_length=50)
-	training_image = models.ImageField(upload_to="images")
-	training_desc = models.CharField(max_length=200)
+	training_image = models.ImageField(upload_to="Images/Training")
+	training_desc = models.TextField(max_length=5000)
 	training_duration = models.CharField(max_length=50)
 
 	def __unicode__(self):              # __unicode__ on Python 2
@@ -49,10 +38,10 @@ class training(models.Model):
 
 class project(models.Model):
 	project_title = models.CharField(max_length=50)
-	project_image = models.ImageField(upload_to="images")
-	project_desc = models.CharField(max_length=200)
+	project_image = models.ImageField(upload_to="Images/Project")
+	project_desc = models.TextField(max_length=5000)
 	project_duration = models.CharField(max_length=50)
-	branch = models.ForeignKey(branch)
+	project_branch = models.ForeignKey(branch)
 
 	def __unicode__(self):              # __unicode__ on Python 2
         	return str(self.project_title)
@@ -60,12 +49,12 @@ class project(models.Model):
 
 class product(models.Model):
 	product_title = models.CharField(max_length=50)
-	product_image = models.ImageField(upload_to="documents/")
-	product_desc = models.CharField(max_length=200)
+	product_image = models.ImageField(upload_to="Images/Product")
+	product_desc = models.TextField(max_length=5000)
 	product_duration = models.CharField(max_length=50)
 
 	def __unicode__(self):              # __unicode__ on Python 2
-        	return str(self.product_title)		
+        	return self.product_title	
 
 
 	

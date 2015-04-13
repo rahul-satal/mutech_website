@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<div class="container" >
+  						<div class="row">
+    						<h2>Projects List</h2>
+
+            {% if project_list %}
+              {% for q in project_list %}
+                <div class="col-md-3" style="border:1px solid blak;height:250px;margin:2%">
+                    <a data-toggle="modal" href="#{{ q.project_title }}">
+                    <img class="img-responsive img-hover" src="../../../media/{{q.project_image}}" alt="Error" style="height:70%; width:100%" /></a><br>
+                    <center><p>{{ q.project_title }}</p></center><br>
+                </div>
+            {% endfor %}
+          {% endif %}    			
+
+<!-- Modal -->
+{% for q in project_list %}
+  <div class="modal fade" id="{{ q.project_title }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 class="modal-title">{{ q.project_title }}</h3>
+        </div>
+        <div class="modal-body" style="display:block;">
+            <div>
+                <img class="img-responsive" src="../../../media/{{q.project_image}}" alt="{{ q.project_title }} image" width="100%" height="" style="">
+            </div>
+            <div>
+              <hr/>
+                <h4>Description</h4>
+                <hr/>
+                <p>{{ q.project_title }}</p>
+            </div>
+            <div style="display:inline;">
+              <hr/>
+                <h4>{{ q.project_title }}</h4>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  {% endfor %}
+<!-- /.modal -->  
+
+    </div>
+ </div>
