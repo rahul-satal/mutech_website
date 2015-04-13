@@ -22,10 +22,16 @@ class profilePic(models.Model):
 
 class branch(models.Model):
     branch_title = models.CharField(max_length=50)
-    subbranch_title = models.CharField(max_length=50)
 
     def __unicode__(self):              # __str__ on Python 3
         	return str(self.branch_title)	
+
+class subbranch(models.Model):
+	parentbranch = models.ForeignKey(branch)
+	subbranch_title = models.CharField(max_length=50)
+
+	def __unicode__(self):              # __str__ on Python 3
+        	return str(self.subbranch_title)	    	
 
 class training(models.Model):
 	training_title = models.CharField(max_length=50)
@@ -42,6 +48,7 @@ class project(models.Model):
 	project_desc = models.TextField(max_length=5000)
 	project_duration = models.CharField(max_length=50)
 	project_branch = models.ForeignKey(branch)
+	project_subbranch = models.ForeignKey(subbranch)
 
 	def __unicode__(self):              # __unicode__ on Python 2
         	return str(self.project_title)

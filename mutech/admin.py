@@ -5,6 +5,7 @@ from mutech.models import *
 admin.site.register(news)
 admin.site.register(profilePic)
 admin.site.register(branch)
+admin.site.register(subbranch)
 admin.site.register(article) 
 admin.site.register(training)
 admin.site.register(project)
