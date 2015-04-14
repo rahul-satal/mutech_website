@@ -13,13 +13,23 @@ def footer(request):
 def project_info(request):
 	project_list = project.objects.all()
 	branch_list = branch.objects.all()
-	context = {'project_list':project_list , 'branch_list':branch_list }
+	subbranch_list = subbranch.objects.all()
+	context = {'branch_list':branch_list , 'subbranch_list':subbranch_list ,'project_list':project_list }
 	return render(request, 'mutech/project.html', context)
 
+'''
 def project_branch_info(request):
 	branch_list = branch.objects.all()
-	context = {'branch_list':branch_list }
+	subbranch_list = subbranch.objects.all()
+	context = {'branch_list':branch_list , 'subbranch_list':subbranch_list }
 	return render(request, 'mutech/project_branch_info.html', context)
+'''
+
+def show_project(request):
+	branch_list = branch.objects.all()
+	subbranch_list = subbranch.objects.all()
+	context = {'branch_list':branch_list , 'subbranch_list':subbranch_list }
+	return render(request, 'mutech/show_project.html', context)	
 
 
 def training_info(request):
@@ -31,8 +41,10 @@ def product_info(request):
 	context = {'product_list':product_list}
 	return render(request, 'mutech/product.html', context)
 
-def aboutus(request):
-	return render(request, 'mutech/aboutus.html')
+def aboutus_info(request):
+	aboutus_list = aboutus.objects.all()
+	context = {'aboutus_list':aboutus_list}
+	return render(request, 'mutech/aboutus.html',context)
 
 def contact(request):
 	return render(request, 'mutech/contact.html')
