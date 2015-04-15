@@ -1,4 +1,7 @@
 from django.db import models
+from django.core.validators import RegexValidator
+import warnings
+warnings.filterwarnings("ignore", "Field 'subbranch_title' doesn't have a default value")
 
 class news(models.Model):
 	news_title = models.CharField(max_length=50)
@@ -66,12 +69,12 @@ class product(models.Model):
 class contactus(models.Model):
 	fname = models.CharField(max_length=50)
 	lname = models.CharField(max_length=50)
-	email = models.CharField(max_length=50)
-	phone_no = models.CharField(max_length=50)
+	email = models.EmailField(max_length=50)
+	phone_no = models.IntegerField(max_length=10,blank=True,validators=[RegexValidator(regex='^.{10}$', message='Mobile no has to be 10 digits long', code='nomatch')])
 	message = models.TextField(max_length=5000)
 
 	def __unicode__(self):              
-        	return str(self.contactus_title)  
+        	return str(self.fname)  
 
 
 class aboutus(models.Model):
@@ -87,10 +90,18 @@ class aboutus(models.Model):
 
 class slider(models.Model):
 	slider_title = models.CharField(max_length=50)
-	slider_image = models.ImageField(upload_to="Images/Slider")
-
+	slider_image1 = models.ImageField(upload_to="Images/Slider/")
+	slider_image2 = models.ImageField(upload_to="Images/Slider/")
+	slider_image3 = models.ImageField(upload_to="Images/Slider/")
+	slider_image4 = models.ImageField(upload_to="Images/Slider/")
+	slider_image5 = models.ImageField(upload_to="Images/Slider/")
+	slider_image6 = models.ImageField(upload_to="Images/Slider/")
+	slider_image7 = models.ImageField(upload_to="Images/Slider/")
+	slider_image8 = models.ImageField(upload_to="Images/Slider/")
+	slider_image9 = models.ImageField(upload_to="Images/Slider/")
+	slider_image10 = models.ImageField(upload_to="Images/Slider/")
 	def __unicode__(self):              
-        	return self.slider_image	        	
+        	return self.slider_title	        	
 
 	
 

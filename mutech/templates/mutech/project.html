@@ -51,30 +51,30 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="index.html" class="slidebar_a"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="/mutech/aboutus/" class="slidebar_a"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
-
+                                      <!-- Sidebar -->
 
 {% if branch_list %}
     {% for q in branch_list %}
 
             <li>
                 <a href="#" class="slidebar_a"><i class="fa fa-table fa-fw"></i> {{ q.branch_title }}    
-
+  <!--                  
 {% for p in subbranch_list %}
         {% if q.id == p.parentbranch_id  %}
-                     <span class="fa arrow"></span></a> 
 
-            {{ break }}
+            
         {% endif %}             
-{% endfor %} 
-                    {% for p1 in subbranch_list %}
+{% endfor %} -->
+                     <span class="fa arrow"></span></a> 
                     <ul class="nav nav-second-level">
+                    {% for p1 in subbranch_list %}
                         {% if q.id == p1.parentbranch_id  %}
                                 <li><a href="#" class="slidebar_a">{{ p1.subbranch_title }}</a></li>
                         {% endif %} 
-                    </ul>
                     {% endfor %}                
+                    </ul>
      
             </li>
     {% endfor %}  
@@ -89,7 +89,7 @@
                 <div class="col-md-9" >
                     <div>
 
-<div class="container" >
+                        <div class="container" >
                         <div class="row">
                             <h2>Projects List</h2>
 
@@ -141,6 +141,8 @@
     </div>
  </div>
 
+
+
                     </div>
                 </div>
             </div>
@@ -156,11 +158,11 @@
     <!-- Custom Theme JavaScript -->
     <script src="{% static 'mutech/js/sb-admin-2.js' %}"></script>
 
-
-
-
-
-
 <div>{% include "mutech/footer.html" %}</div>
 </body>
 </html>
+
+
+<!-- {% if branch.subbranch_set.all %} 
+                     <span class="fa arrow"></span></a> 
+        {% endif %}  -->
