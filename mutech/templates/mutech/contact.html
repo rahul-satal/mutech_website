@@ -13,22 +13,33 @@
 </head>
 <body>
 <div class="midDiv">
+<script>
+function fun() {
+    alert("Your message is sent to admin!");
+}
+</script>
+
+
+
+
+
 		<!-- Contact with Map - START -->
 <div class="container">
     <div class="row" style="margin-top:1%;">
         <div class="col-md-6">
             <div class="well well-sm">
                 <form class="form-horizontal" method="post">
+                {% csrf_token %}
                     <fieldset>
                         <legend class="text-center header">Contact us</legend>
                         <div class="form-group">
                             <div class="col-md-10 col-md-offset-1">
-                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
+                                <input id="fname" name="fname" type="text" placeholder="First Name" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-10 col-md-offset-1">
-                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
+                                <input id="lname" name="lname" type="text" placeholder="Last Name" class="form-control">
                             </div>
                         </div>
 
@@ -40,7 +51,7 @@
 
                         <div class="form-group">
                             <div class="col-md-10 col-md-offset-1">
-                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
+                                <input id="phone" name="phone_no" type="text" placeholder="Phone" class="form-control">
                             </div>
                         </div>
 
@@ -52,7 +63,8 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                <button type="submit" class="btn btn-primary btn-lg" onclick="fun()" >Submit</button>
+                      
                             </div>
                         </div>
                     </fieldset>
@@ -120,6 +132,18 @@
         padding: 10px;
     }
 </style>
+<script type="text/javascript">
+	function fun{
+		alert("Hello");
+	}
+</script>
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>
+
 
 <!-- Contact with Map - END -->
 </div><!-- end of middiv -->

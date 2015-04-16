@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, render_to_response
+from django import forms
+from django.http import HttpResponse, HttpResponseRedirect
 from mutech.models import *
 
 def index(request):
@@ -47,6 +49,12 @@ def aboutus_info(request):
 	return render(request, 'mutech/aboutus.html',context)
 
 def contact(request):
-	return render(request, 'mutech/contact.html')
+	if request.method == 'GET':
+		return render(request, 'mutech/contact.html')
+	else:
+		''' -----fetching the data from the user and saving it in database---- '''
+		data = contactus(fname= request.POST['fname'], lname= request.POST['lname'], email = request.POST['email'], phone_no = request.POST['phone_no'], message = request.POST['message'])
+		data.save()
+		return HttpResponseRedirect('#')
 
 						    
