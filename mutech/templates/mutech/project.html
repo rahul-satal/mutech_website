@@ -54,7 +54,6 @@
                         <a href="/mutech/aboutus/" class="slidebar_a"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                                       <!-- Sidebar -->
-
 {% if branch_list %}
     {% for q in branch_list %}
 
@@ -71,7 +70,7 @@
                     <ul class="nav nav-second-level">
                     {% for p1 in subbranch_list %}
                         {% if q.id == p1.parentbranch_id  %}
-                                <li><a href="#" class="slidebar_a">{{ p1.subbranch_title }}</a></li>
+                                <li><a href="/mutech/{{ q.id }}/" class="slidebar_a">{{ p1.subbranch_title }}</a></li>
                         {% endif %} 
                     {% endfor %}                
                     </ul>
@@ -85,6 +84,9 @@
         </div>
         <!-- /.navbar-static-side -->
 
+
+
+
               </div>
                 <div class="col-md-9" >
                     <div>
@@ -92,6 +94,18 @@
                         <div class="container" >
                         <div class="row">
                             <h2>Projects List</h2>
+{% if branchId %}
+    {% for sub in branchId.project_set.all %}
+            
+                <div class="col-md-3" style="border:1px solid blak;height:250px;margin:2%">
+                    <a data-toggle="modal" href="#{{ sub.project_title }}">
+                    <img class="img-responsive img-hover" src="../../../media/{{ sub.project_image }}" alt="Error" style="height:70%; width:100%" /></a><br>
+                    <center><p>{{ sub.project_title }}</p></center><br>
+                </div>
+    {% endfor %}
+{% endif %}
+
+<!--
 
             {% if project_list %}
               {% for q in project_list %}
@@ -104,7 +118,7 @@
             {% else %}
             <p>No Project Found</p>
           {% endif %}               
-
+-->
 <!-- Modal -->
 {% for q in project_list %}
   <div class="modal fade" id="{{ q.project_title }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -122,11 +136,11 @@
               <hr/>
                 <h4>Description</h4>
                 <hr/>
-                <p>{{ q.project_title }}</p>
+                <p>{{ q.project_desc }}</p>
             </div>
             <div style="display:inline;">
               <hr/>
-                <h4>{{ q.project_title }}</h4>
+                <h4>Duration</h4><p>{{ q.project_duration }}</p>
             </div>
         </div>
         <div class="modal-footer">

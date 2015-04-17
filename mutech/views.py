@@ -31,7 +31,7 @@ def show_project(request):
 	branch_list = branch.objects.all()
 	subbranch_list = subbranch.objects.all()
 	context = {'branch_list':branch_list , 'subbranch_list':subbranch_list }
-	return render(request, 'mutech/show_project.html', context)	
+	return render(request, 'mutech/show_project.html/1/', context)	
 
 
 def training_info(request):
@@ -57,4 +57,14 @@ def contact(request):
 		data.save()
 		return HttpResponseRedirect('#')
 
-						    
+def detail(request, branch_id):
+	project_list = project.objects.all()
+	branch_list = branch.objects.all()
+	subbranch_list = subbranch.objects.all()
+	branchId = get_object_or_404(branch, pk=branch_id)
+	context1 = {'branch_list':branch_list , 'subbranch_list':subbranch_list ,'project_list':project_list , 'branchId':branchId}
+
+	return render(request, 'mutech/project.html', context1)
+
+
+						    	
