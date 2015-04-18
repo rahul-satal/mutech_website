@@ -5,14 +5,14 @@ warnings.filterwarnings("ignore", "Field 'subbranch_title' doesn't have a defaul
 
 class news(models.Model):
 	news_title = models.CharField(max_length=50)
-	news_desc = models.TextField(max_length=5000)
+	news_desc = models.TextField(max_length=20000)
 
 	def __unicode__(self):              # __str__ on Python 3
         	return str(self.news_title)
 
 class article(models.Model):
 	article_title = models.CharField(max_length=50)
-	article_desc = models.TextField(max_length=5000)
+	article_desc = models.TextField(max_length=20000)
 
 	def __unicode__(self):              
         	return str(self.article_title)        	

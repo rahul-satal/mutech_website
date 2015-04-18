@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="{% static 'mutech/css/index.css' %}" rel="stylesheet">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,23 +11,42 @@
     <title>Home</title>
     <div>{% include "mutech/header.html" %}</div>
     <style type="text/css">
-         #slider_errow:hover{
-            color: #fff;
-            text-shadow: 1px 1px 1px #ccc;
-            font-size: 1.5em;
-             }
-          .news_list{
+     	#slider_errow:hover{
+	            color: #fff;
+	            text-shadow: 1px 1px 1px #ccc;
+	            font-size: 1.5em;
+        }
+        .newsArticle_list{
             text-decoration:none;
             color:hsl(210, 89%, 47%)
-          }  
-          .news_list:hover{
+        }  
+        .newsArticle_list:hover{
             text-decoration:underline;
-            color:hsl(210, 89%, 47%)
-          }   
+            color:hsl(210, 89%, 47%) }
+        #news_div
+        {
+	         background-color:white;
+	         border:hsl(0, 0%, 87%);
+	         padding:0px; 
+	         border-top-left-radius: 1em; 
+	         border-top-right-radius: 0.5em;
+	         height:400px   
+        }
+        #article_div {
+			background-color:hsl(210, 29%, 24%);
+			border-top-right-radius: 0.5em; 
+			color:white;
+			width:100%; 
+			height:35px;
+        }
+        #slider_image{
+			height:300px;
+			border:3px solid #737373;
+        }
     </style>
 </head>
 <body>
-	<div class="midDiv col-md-12 col-sm-12" style="padding-top:10%; overflow: hidden;">
+	<div class="midDiv col-md-12 col-sm-12 row" style="padding-top:10%; overflow: hidden;">
 
 	<!-- Product Slider - START -->
 	<div class="row">
@@ -35,447 +55,141 @@
             <a id="slider_errow" class="left fa fa-chevron-left btn btn" href="#carousel-example" data-slide="prev" style="color:black;vertical-align: middle"></a>
         </div>
 	</div>
+
+{% if slider_list %}
+    {% for q in slider_list %}
+                   
+
 	<div class="container col-md-10">
-    <div class="row">
-        <div id="carousel-example" class="carousel slide hidden-xs col-md-12" data-ride="carousel">
+    <div class="row" style="height:350px">
+        <div id="carousel-example" class="carousel slide hidden-xs " data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>Product A</h5>
-                                            <h5 class="price-text-color">$7.99</h5>
-                                        </div>
-                                        <div class="rating hidden-sm col-md-6">
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="photo">
-                                    <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_001.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                        </p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
-                                        </p>
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row" style="height:1000px">
+                        <div class="col-sm-3" style="">
+                            <div>
+                                    <img id="slider_image" src="../../../media/{{q.slider_image1}}" class="img-responsive" alt="a" style="" />
+                              </div> 
                         </div>
-
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>Product B</h5>
-                                            <h5 class="price-text-color">$9.99</h5>
-                                        </div>
-                                        <div class="rating hidden-sm col-md-6">
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="photo">
-                                    <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_002.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                        </p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
-                                        </p>
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-sm-3" style="">
+                            <div>
+                                    <img id="slider_image" src="../../../media/{{q.slider_image2}}" class="img-responsive" alt="a" style="heigth:500px" />
+                              </div> 
                         </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>Product C</h5>
-                                            <h5 class="price-text-color">$7.58</h5>
-                                        </div>
-                                        <div class="rating hidden-sm col-md-6">
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="photo">
-                                    <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_003.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                        </p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
-                                        </p>
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-sm-3" style="">
+                            <div>
+                                    <img id="slider_image" src="../../../media/{{q.slider_image3}}" class="img-responsive" alt="a" style="heigth:500px" />
+                              </div> 
                         </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>Another productD</h5>
-                                            <h5 class="price-text-color">$3.75</h5>
-                                        </div>
-                                        <div class="rating hidden-sm col-md-6">
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="photo">
-                                    <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_001.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                        </p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
-                                        </p>
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-sm-3" style="">
+                            <div>
+                                    <img id="slider_image" src="../../../media/{{q.slider_image4}}" class="img-responsive" alt="a" style="heigth:500px" />
+                              </div> 
                         </div>
                     </div>
                 </div>
+
                 <div class="item">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>ProductE</h5>
-                                            <h5 class="price-text-color">$7.17</h5>
-                                        </div>
-                                        <div class="rating hidden-sm col-md-6">
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="photo">
-                                    <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_001.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                        </p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
-                                        </p>
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
+                      <div class="row">
+                        <div class="col-sm-3" style="">
+                            <div>
+                                    <img id="slider_image" src="../../../media/{{q.slider_image5}}" class="img-responsive" alt="a" style="heigth:500px; " />
+                              </div> 
                         </div>
-
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>Product F</h5>
-                                            <h5 class="price-text-color">$19.99</h5>
-                                        </div>
-                                        <div class="rating hidden-sm col-md-6">
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="photo">
-                                    <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_002.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                        </p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
-                                        </p>
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-sm-3" style="">
+                            <div>
+                                    <img id="slider_image" src="../../../media/{{q.slider_image6}}" class="img-responsive" alt="a" style="heigth:500px" />
+                              </div> 
                         </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>Product G</h5>
-                                            <h5 class="price-text-color">$1.99</h5>
-                                        </div>
-                                        <div class="rating hidden-sm col-md-6">
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="photo">
-                                    <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_003.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                        </p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
-                                        </p>
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-sm-3" style=";">
+                            <div>
+                                    <img id="slider_image" src="../../../media/{{q.slider_image7}}" class="img-responsive" alt="a" style="heigth:500px" />
+                              </div> 
                         </div>
-                        <div class="col-sm-3">
-                            <div class="col-item">
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="price col-md-6">
-                                            <h5>Product H</h5>
-                                            <h5 class="price-text-color">$1.09</h5>
-                                        </div>
-                                        <div class="rating hidden-sm col-md-6">
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                            <i class="price-text-color fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="photo">
-                                    <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_001.jpg" class="img-responsive" alt="a" />
-                                </div>
-                                <div class="info">
-                                    <div class="separator clear-left">
-                                        <p class="btn-add">
-                                            <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                        </p>
-                                        <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a>
-                                        </p>
-                                    </div>
-                                    <div class="clearfix">
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-sm-3" style="">
+                            <div>
+                                    <img id="slider_image" src="../../../media/{{q.slider_image8}}" class="img-responsive" alt="a" style="heigth:500px" />
+                              </div> 
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
         </div>
             </div>
+
+            {% endfor %}
+     {% endif %}      
+
                             <div class="controls pull-right hidden-xs col-md-1" style="margin-top:10%;">
                     <a id="slider_errow" class="right fa fa-chevron-right btn" href="#carousel-example"
                             data-slide="next" style="color:black"></a>
                 </div>
             </div><!--Top row ends--><br>
 
-            <div class="row" >
+
+                  
+                        
+                    
+    
+
+
+            <div class="row" style="padding-bottom:200px;">
                 <div class="col-md-1"></div>
-                <div class="col-md-10 col-sm-10" style="background-color:white;border:hsl(0, 0%, 87%);padding:0px; border-top-left-radius: 1em; border-top-right-radius: 0.5em;">
+                <div class="col-md-10 col-sm-10" id="news_div">
                     <div class="col-md-6 col-sm-6" style=" padding:0px; ">
                         <div class="col-md-12  text-uppercase" style="background-color:hsl(210, 29%, 24%);color:white; width:110%; height:35px; border-top-left-radius: 0.5em;"><span style="font-size: 16px; margin-top:50px;">News</span></div>
                         <div style="padding:15% 0 5%  20% ;">
-                        <p>News</p>
-                        <ul class="list-unstyled" >
-                         <a href="#" target="_blank"; class="news_list"> <li>Online MP UG and PG Admission process</li></a>
-                          <a href="#" target="_blank"; class="news_list"><li>Counselling shedule for CET 2014</li></a>
-                          <a href="#" target="_blank"; class="news_list"><li>General Rules for Admission CET-2014</li></a>
-                          <a href="#" target="_blank"; class="news_list"><li>General Rules for Admission for NON-CET</li></a>
-                          <a href="#" target="_blank"; class="news_list"><li>Admissions to NRI seats in courses under cet 2014</li></a>
-                        </ul>
+							<p>News</p>
+							    {% if news_list %}
+									{% for q in news_list %}
+							            <ul class="list-unstyled" >
+							                <a class="newsArticle_list" data-toggle="collapse" data-target="#news{{ q.id }}" aria-expanded="false" aria-controls="collapseExample"> <li>{{ q.news_title }}</li></a>
+											<div class="collapse" id="news{{ q.id }}">
+											  <div class="well">
+											    {{ q.news_desc|slice:":155"  }}
+											    <a href="#" style="color:#0D77E2;">detail</a>
+											  </div>
+											</div>
+
+							  		{% endfor %}
+								{% endif %}
+							            </ul>
+                    	</div>
                     </div>
-                    </div>
+
+
                     <div class="col-md-6 col-sm-6" style="padding:0px">
-                        <div class="col-md-12 text-right text-uppercase" style="background-color:hsl(210, 29%, 24%);color:white; width:100%; height:35px; border-top-right-radius: 0.5em; "><span style="font-size: 16px; margin-top:50px;">Activities</span></div>
+                        <div class="col-md-12 text-right text-uppercase" id="article_div" >
+                        <span style="font-size: 16px; margin-top:50px;">Activities</span></div>
                         <div style="padding:15% 0 5% 15%">
-                        <p>Activities</p>
-                        <ul class="list-unstyled">
-                         <a href="#" target="_blank"; class="news_list"> <li>Online MP UG and PG Admission process</li></a>
-                          <a href="#" target="_blank"; class="news_list"><li>Counselling shedule for CET 2014</li></a>
-                          <a href="#" target="_blank"; class="news_list"><li>General Rules for Admission CET-2014</li></a>
-                          <a href="#" target="_blank"; class="news_list"><li>General Rules for Admission for NON-CET</li></a>
-                          <a href="#" target="_blank"; class="news_list"><li>Admissions to NRI seats in courses under cet 2014</li></a>
-                        </ul>
+	                        <p>Activities</p>
+							    {% if article_list %}
+									{% for q in article_list %}
+							            <ul class="list-unstyled" >
+							                <a class="newsArticle_list" data-toggle="collapse" data-target="#article{{ q.id }}" aria-expanded="false" aria-controls="collapseExample"> <li>{{ q.article_title }}</li></a>
+											<div class="collapse" id="article{{ q.id }}">
+											  <div class="well">
+											    {{ q.article_desc|slice:":155"  }}
+											    <a href="#" style="color:#0D77E2;">detail</a>
+											  </div>
+											</div>
+
+							  		{% endfor %}
+								{% endif %}
+	                       				</ul>
+                    	</div>
                     </div>
-                    </div>
-                
                 </div>
-                <div class="col-md-1"></div>    
-                   
+                <div class="col-md-1"></div>     
             </div>
 
     </div><!--middiv ends-->
-    <br><br><br><br>
+    </div>
 
-
-
-<style>
-.col-item
-{
-    border: 2px solid #2323A1;
-    border-radius: 5px;
-    background: #FFF;
-}
-.col-item .photo img
-{
-    margin: 0 auto;
-    width: 100%;
-}
-
-.col-item .info
-{
-    padding: 10px;
-    border-radius: 0 0 5px 5px;
-    margin-top: 1px;
-}
-.col-item:hover .info {
-    background-color: rgba(215, 215, 244, 0.5); 
-}
-.col-item .price
-{
-    /*width: 50%;*/
-    float: left;
-    margin-top: 5px;
-}
-
-.col-item .price h5
-{
-    line-height: 20px;
-    margin: 0;
-}
-
-.price-text-color
-{
-    color: #00990E;
-}
-
-.col-item .info .rating
-{
-    color: #003399;
-}
-
-.col-item .rating
-{
-    /*width: 50%;*/
-    float: left;
-    font-size: 17px;
-    text-align: right;
-    line-height: 52px;
-    margin-bottom: 10px;
-    height: 52px;
-}
-
-.col-item .separator
-{
-    border-top: 1px solid #FFCCCC;
-}
-
-.clear-left
-{
-    clear: left;
-}
-
-.col-item .separator p
-{
-    line-height: 20px;
-    margin-bottom: 0;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.col-item .separator p i
-{
-    margin-right: 5px;
-}
-.col-item .btn-add
-{
-    width: 50%;
-    float: left;
-}
-
-.col-item .btn-add
-{
-    border-right: 1px solid #CC9999;
-}
-
-.col-item .btn-details
-{
-    width: 50%;
-    float: left;
-    padding-left: 10px;
-}
-.controls
-{
-    margin-top: 20px;
-}
-[data-slide="prev"]
-{
-    margin-right: 10px;
-}
-</style>
-
-<!-- Product Slider - END -->
-
-</div>
-</div>
-<br>
-<br>
-
-
-
-<div>{% include "mutech/footer.html" %}</div>
+<div class="row" style="margin-top:100px">{% include "mutech/footer.html" %}</div>
 </body>
 </html>

@@ -51,7 +51,7 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="/mutech/aboutus/" class="slidebar_a"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="/mutech/project/" class="slidebar_a"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                                       <!-- Sidebar -->
 {% if branch_list %}
@@ -59,13 +59,12 @@
 
             <li>
                 <a href="#" class="slidebar_a"><i class="fa fa-table fa-fw"></i> {{ q.branch_title }}    
-  <!--                  
-{% for p in subbranch_list %}
-        {% if q.id == p.parentbranch_id  %}
-
-            
-        {% endif %}             
-{% endfor %} -->
+                  <!--                  
+                {% for p in subbranch_list %}
+                        {% if q.id == p.parentbranch_id  %}
+                        <span class="fa arrow"></span></a>   
+                        {% endif %}             
+                {% endfor %} -->
                      <span class="fa arrow"></span></a> 
                     <ul class="nav nav-second-level">
                     {% for p1 in subbranch_list %}
@@ -83,42 +82,36 @@
                 <!-- /.sidebar-collapse -->
         </div>
         <!-- /.navbar-static-side -->
+    </div><!-- sidebar End-->
+    <div class="col-md-9" >
+        <div>
+            <div class="container" >
+                <div class="row">
+                    <h2>Projects List</h2>
+            {% if branchId %}
+                {% for sub in branchId.project_set.all %}
+                        
+                            <div class="col-md-3" style="border:1px solid blak;height:250px;margin:2%">
+                                <a data-toggle="modal" href="#{{ sub.project_title }}">
+                                <img class="img-responsive img-hover" src="../../../media/{{ sub.project_image }}" alt="Error" style="height:70%; width:100%" /></a><br>
+                                <center><p>{{ sub.project_title }}</p></center><br>
+                            </div>
+                {% endfor %}
 
-
-
-
-              </div>
-                <div class="col-md-9" >
-                    <div>
-
-                        <div class="container" >
-                        <div class="row">
-                            <h2>Projects List</h2>
-{% if branchId %}
-    {% for sub in branchId.project_set.all %}
-            
-                <div class="col-md-3" style="border:1px solid blak;height:250px;margin:2%">
-                    <a data-toggle="modal" href="#{{ sub.project_title }}">
-                    <img class="img-responsive img-hover" src="../../../media/{{ sub.project_image }}" alt="Error" style="height:70%; width:100%" /></a><br>
-                    <center><p>{{ sub.project_title }}</p></center><br>
-                </div>
-    {% endfor %}
-{% endif %}
-
-<!--
-
-            {% if project_list %}
-              {% for q in project_list %}
-                <div class="col-md-3" style="border:1px solid blak;height:250px;margin:2%">
-                    <a data-toggle="modal" href="#{{ q.project_title }}">
-                    <img class="img-responsive img-hover" src="../../../media/{{q.project_image}}" alt="Error" style="height:70%; width:100%" /></a><br>
-                    <center><p>{{ q.project_title }}</p></center><br>
-                </div>
-            {% endfor %}
             {% else %}
-            <p>No Project Found</p>
-          {% endif %}               
--->
+                {% if project_list %}
+                  {% for q in project_list %}
+                    <div class="col-md-3" style="border:1px solid blak;height:250px;margin:2%">
+                        <a data-toggle="modal" href="#{{ q.project_title }}">
+                        <img class="img-responsive img-hover" src="../../../media/{{q.project_image}}" alt="Error" style="height:70%; width:100%" /></a><br>
+                        <center><p>{{ q.project_title }}</p></center><br>
+                    </div>
+                   {% endfor %}
+                {% else %}
+                    <p>No Project Found</p>
+                {% endif %}               
+
+            {% endif %}
 <!-- Modal -->
 {% for q in project_list %}
   <div class="modal fade" id="{{ q.project_title }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

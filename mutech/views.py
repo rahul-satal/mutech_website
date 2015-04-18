@@ -4,7 +4,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from mutech.models import *
 
 def index(request):
-    return render(request, 'mutech/index.html')
+	slider_list = slider.objects.all()
+	news_list = news.objects.all()
+	article_list = article.objects.all()
+	context = {'slider_list':slider_list ,'news_list':news_list ,'article_list':article_list }
+	return render(request, 'mutech/index.html',context)
 
 def header(request):
 	return render(request, 'mutech/header.html')
