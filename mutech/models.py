@@ -70,7 +70,8 @@ class contactus(models.Model):
 	fname = models.CharField(max_length=50)
 	lname = models.CharField(max_length=50)
 	email = models.EmailField(max_length=50)
-	phone_no = models.IntegerField(max_length=10,blank=True,validators=[RegexValidator(regex='^.{10}$', message='Mobile no has to be 10 digits long', code='nomatch')])
+	phone_no = models.IntegerField(max_length=10)
+	#phone_no = models.IntegerField(max_length=10,blank=True,validators=[RegexValidator(regex='^.{10}$', message='Mobile no has to be 10 digits long', code='nomatch')])
 	message = models.TextField(max_length=5000)
 
 	def __unicode__(self):              
