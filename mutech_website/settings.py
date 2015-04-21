@@ -62,7 +62,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mutech_db',
         'USER': 'root',
-        'PASSWORD':'root',
+        'PASSWORD':'dc_root',
         'HOST': '',
         'PORT': '',
     }
@@ -89,6 +89,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 STATIC_URL = '/static/'
-#STATICFILES_DIRS = '/home/dc/my_django_apps/mutech_website/mutech/static/bootstrap_template/'
