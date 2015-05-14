@@ -8,5 +8,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-}        
-
+} /*       
+body{
+	overflow: scroll;
+}

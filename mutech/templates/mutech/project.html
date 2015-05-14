@@ -115,7 +115,7 @@
 <!-- Modal -->
 {% for q in project_list %}
   <div class="modal fade" id="{{ q.project_title }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="overflow:visible">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -168,8 +168,3 @@
 <div>{% include "mutech/footer.html" %}</div>
 </body>
 </html>
-
-
-<!-- {% if branch.subbranch_set.all %} 
-                     <span class="fa arrow"></span></a> 
-        {% endif %}  -->

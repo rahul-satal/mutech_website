@@ -39,7 +39,9 @@ def show_project(request):
 
 
 def training_info(request):
-	return render(request, 'mutech/training.html')
+	training_list = training.objects.all()
+	context = {'training_list':training_list}
+	return render(request, 'mutech/training.html', context)
 
 def product_info(request):
 	#product_qlist=product.objects.values_list('product_title', flat= True)
