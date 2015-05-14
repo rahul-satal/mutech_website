@@ -9,7 +9,20 @@
     <meta name="author" content="">
     <title>Training</title>
     <div>{% include "mutech/header.html" %}</div>
+    <link href="{% static 'mutech/css/agency.css' %}" rel="stylesheet">
     <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet">
+    <style type="text/css">
+        #image-modal-outer:hover{
+                position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: rgba(254,209,54,.9);
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
+        }
+     </style>
 </head>
 <body>
   <div class="midDiv">
@@ -19,94 +32,48 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-        </button>
+        </button> 
+
+
+
 
         {% if training_list %}
             {% for q in training_list %}
-            
-            <div class="col-md-4" style="border:1px solid blak;height:250px">
-                <a data-toggle="modal" href="#{{ q.training_title }}">
-                <img class="img-responsive img-hover" src="../../../media/{{q.training_image}}" alt="Error" style="height:70%; width:100%" /></a><br>
-                    <center><p>{{ q.training_title }}</p></center><br>
-            </div>
-            {% endfor %}
-           
-                
+         <!-- Portfolio Grid Section -->
+         <div class="col-md-4 col-sm-12">
+    <section id="portfolio" class="bg-light-gray">
         
-        <hr>
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
+        
+                
+                <div class="col-md-12 col-sm-12 portfolio-item">
+                    <a href="#{{ q.training_title }}" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="../../../media/{{q.training_image}}" class="img-responsive" alt="" width="100%" height="100%">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>{{ q.training_title }}</h4>
+                    </div>
+                </div>
+                
+                
             </div>
-        </div>
+       
+    </section>
+    {% endfor %}
+           
         {% else %}
         <center><h1>No Training Found </h1></center>  
         {% endif %}
-        <!-- /.row -->
+
   </div>
     <!-- /.container -->
     
 </div><!-- midDiv ends -->
 
-
-
-<!-- Modal -->
-{% if training_list %}
-            {% for q in training_list %}
-  <div class="modal fade col-md-12 col-sm-6 " id="{{ q.training_title }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 class="modal-title">{{ q.training_title }}</h3>
-        </div>
-        <div class="modal-body" style="display:block">
-            <div>
-                <img class="img-responsive" src="../../../media/{{q.training_image}}" alt="">
-            </div>
-            <div>
-                <hr/>
-                <h4>Description</h4>
-                <hr/>
-                <p>{{ q.training_desc }}</p>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>
-  {% endfor %} 
-        {% endif %}
-        
-  
-           
-  <!-- /.modal -->
 
 
 <div>{% include "mutech/footer.html" %}</div>
@@ -120,7 +87,44 @@
         
        })
         
-</script>                                                                                       
+</script>   
+
+    
+
+
+
+{% if training_list %}
+            {% for q in training_list %}
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="{{ q.training_title }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>{{ q.training_title }}</h2>
+                            
+                            <img class="img-responsive img-centered" src="../../../media/{{q.training_image}}" alt="">
+                            <p>{{ q.training_desc }}</p>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      {% endfor %} 
+        {% endif %}
+
+
 
 
 </body>
