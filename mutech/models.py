@@ -48,7 +48,7 @@ class training(models.Model):
 class project(models.Model):
 	project_title = models.CharField(max_length=50)
 	project_image = models.ImageField(upload_to="Images/Project")
-	project_desc = models.TextField(max_length=5000)
+	project_desc = models.TextField(max_length=50000)
 	project_duration = models.CharField(max_length=50)
 	project_branch = models.ForeignKey(branch)
 	project_subbranch = models.ForeignKey(subbranch)
