@@ -3,7 +3,6 @@ from mutech.models import *
 # Register your models here.
 
 admin.site.register(news)
-admin.site.register(profilePic)
 admin.site.register(branch)
 admin.site.register(subbranch)
 admin.site.register(article) 

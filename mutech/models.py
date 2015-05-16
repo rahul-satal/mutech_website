@@ -16,13 +16,7 @@ class article(models.Model):
 
 	def __unicode__(self):              
         	return str(self.article_title)        	
-
-class profilePic(models.Model):
-	profilePic = models.ImageField(upload_to="images")
-
-	def __unicode__(self):              
-        	return str(self.profilePic)
-
+        	
 class branch(models.Model):
     branch_title = models.CharField(max_length=50)
 
@@ -43,7 +37,7 @@ class training(models.Model):
 	training_duration = models.CharField(max_length=50)
 
 	def __unicode__(self):              
-        	return str()
+        	return str(self.training_title)
 
 class project(models.Model):
 	project_title = models.CharField(max_length=50)
@@ -61,7 +55,9 @@ class product(models.Model):
 	product_title = models.CharField(max_length=50)
 	product_image = models.ImageField(upload_to="Images/Product")
 	product_desc = models.TextField(max_length=5000)
-	product_duration = models.CharField(max_length=50)
+	product_duration = models.CharField(default="2 months",max_length=50)
+	product_stock = models.BooleanField(default=True)
+	product_price = models.IntegerField(default=2000)
 
 	def __unicode__(self):              
         	return self.product_title	
@@ -99,8 +95,6 @@ class slider(models.Model):
 	slider_image6 = models.ImageField(upload_to="Images/Slider/")
 	slider_image7 = models.ImageField(upload_to="Images/Slider/")
 	slider_image8 = models.ImageField(upload_to="Images/Slider/")
-	slider_image9 = models.ImageField(upload_to="Images/Slider/")
-	slider_image10 = models.ImageField(upload_to="Images/Slider/")
 	def __unicode__(self):              
         	return self.slider_title	        	
 

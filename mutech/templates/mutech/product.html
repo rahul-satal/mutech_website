@@ -31,37 +31,6 @@
             </div>
             {% endfor %}
            
-                
-        
-       
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         {% else %}
         <center><h1>No Product found </h1></center>  
         {% endif %}
@@ -73,41 +42,49 @@
 
 
 
-<!-- Modal -->
+<!-- Modal content starts  -->
+
 {% if product_list %}
             {% for q in product_list %}
-  <div class="modal fade col-md-12 col-sm-6 " id="{{ q.product_title }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 class="modal-title">{{ q.product_title }}</h3>
-        </div>
-        <div class="modal-body" style="display:block">
-            <div>
-                <img class="img-responsive" src="../../../media/{{q.product_image}}" alt="">
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="{{ q.product_title }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
             </div>
-            <div>
-                <hr/>
-                <h4>Description</h4>
-                <hr/>
-                <p>{{ q.product_desc }}</p>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>
-  {% endfor %} 
-        {% endif %}
-        
-  
-           
-  <!-- /.modal -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>{{ q.product_title }}</h2>
+                            
+                            <img class="img-responsive img-centered" src="../../../media/{{q.product_image}}" alt="">
+                            <p>{{ q.product_desc }}</p>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-lg-offset-" style="border:1px solid transparent;">
+                        <div style="border:1px solid black; height:400px;width:250px; border-top-left-radius:0.8em; border-top-right-radius:0.8em; padding:0% 0% 0% 0%;margin:0% 0% 0% 0%">
+                            <p class="text-uppercase"  style="text-align:center;background-color:hsl(210, 29%, 24%);color:white;font-size:16px; width:100% ; height:10%;  border-top-left-radius:0.5em;  border-top-right-radius:0.5em;">Details</p>
+                        
+                            <p>Model No.:{{ q.id }}</p>
+                            <p>Duration:{{ q.product_duration }}</p>
+                            <p>Availability:{{ q.product_stock }}</p>
+                            <p>Price:{{ q.product_price }}</p>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      {% endfor %} 
+        {% endif %}
 
 <div>{% include "mutech/footer.html" %}</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
