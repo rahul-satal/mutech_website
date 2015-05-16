@@ -34,7 +34,9 @@ class training(models.Model):
 	training_title = models.CharField(max_length=50)
 	training_image = models.ImageField(upload_to="Images/Training")
 	training_desc = models.TextField(max_length=5000)
-	training_duration = models.CharField(max_length=50)
+	training_duration = models.CharField(max_length=50,default="2 Weeks")
+	training_price = models.IntegerField(default=2000)
+
 
 	def __unicode__(self):              
         	return str(self.training_title)
@@ -43,7 +45,8 @@ class project(models.Model):
 	project_title = models.CharField(max_length=50)
 	project_image = models.ImageField(upload_to="Images/Project")
 	project_desc = models.TextField(max_length=50000)
-	project_duration = models.CharField(max_length=50)
+	project_duration = models.CharField(max_length=50,default="2 Weeks")
+	project_price = models.IntegerField(default=2000)
 	project_branch = models.ForeignKey(branch)
 	project_subbranch = models.ForeignKey(subbranch)
 
@@ -55,7 +58,6 @@ class product(models.Model):
 	product_title = models.CharField(max_length=50)
 	product_image = models.ImageField(upload_to="Images/Product")
 	product_desc = models.TextField(max_length=5000)
-	product_duration = models.CharField(default="2 months",max_length=50)
 	product_stock = models.BooleanField(default=True)
 	product_price = models.IntegerField(default=2000)
 

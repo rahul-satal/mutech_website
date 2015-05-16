@@ -10,6 +10,8 @@
     <title>Products</title>
     <div>{% include "mutech/header.html" %}</div>
     <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet">
+    <link href="{% static 'mutech/css/agency.css' %}" rel="stylesheet">
+
 </head>
 <body>
 	<div class="midDiv">
@@ -20,21 +22,34 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-
-        {% if product_list %}
+        <!-- List of products -->
+          {% if product_list %}
             {% for q in product_list %}
-            
-            <div class="col-md-4" style="border:1px solid blak;height:250px">
-                <a data-toggle="modal" href="#{{ q.product_title }}">
-                <img class="img-responsive img-hover" src="../../../media/{{q.product_image}}" alt="Error" style="height:70%; width:100%" /></a><br>
-                    <center><p>{{ q.product_title }}</p></center><br>
+         <!-- Portfolio Grid Section -->
+         <div class="col-md-4 col-sm-12">
+    <section id="portfolio" class="bg-light-gray" style="padding-top:0px">           
+                <div class="col-md-12 col-sm-12 portfolio-item">
+                    <a href="#{{ q.product_title }}" class="portfolio-link" data-toggle="modal" >
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="../../../media/{{q.product_image}}" class="img-responsive" alt="" style="width:100%;height:200px">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>{{ q.product_title }}</h4>
+                    </div>
+                </div>
+                
+                </section>
             </div>
-            {% endfor %}
-           
+       
+    
+    {% endfor %}
         {% else %}
-        <center><h1>No Product found </h1></center>  
+        <center><h1>No product Found </h1></center>  
         {% endif %}
-        <!-- /.row -->
 	</div>
     <!-- /.container -->
     
@@ -56,28 +71,50 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-lg-offset-">
+
+                 <div class="row">
+                   <h2>{{ q.product_title }}</h2>
+                </div>
+
+                <div class="row" style="margin-top:2%">
+                    <div class="col-lg-6 col-sm-6 col-lg-offset-">
                         <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>{{ q.product_title }}</h2>
+                           
+                            <img class="img-responsive img-centered" src="../../../media/{{q.product_image}}" alt="" style="width:100%; height:100%">
                             
-                            <img class="img-responsive img-centered" src="../../../media/{{q.product_image}}" alt="">
-                            <p>{{ q.product_desc }}</p>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close </button>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-lg-offset-" style="border:1px solid transparent;">
-                        <div style="border:1px solid black; height:400px;width:250px; border-top-left-radius:0.8em; border-top-right-radius:0.8em; padding:0% 0% 0% 0%;margin:0% 0% 0% 0%">
-                            <p class="text-uppercase"  style="text-align:center;background-color:hsl(210, 29%, 24%);color:white;font-size:16px; width:100% ; height:10%;  border-top-left-radius:0.5em;  border-top-right-radius:0.5em;">Details</p>
+
+                    <div class="col-lg-2 col-sm-2 ">
                         
-                            <p>Model No.:{{ q.id }}</p>
-                            <p>Duration:{{ q.product_duration }}</p>
-                            <p>Availability:{{ q.product_stock }}</p>
-                            <p>Price:{{ q.product_price }}</p>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-4 col-lg-offset-" style="border:1px solid transparent;">
+                        <div style="border:1px solid black; height:400px;width:250px; border-radius:0.6em; padding:0% 0% 0% 0%;margin:0% 0% 0% 0%">
+                            <p class="text-uppercase"  style="text-align:center;background-color:hsl(210, 29%, 24%);color:white;font-size:16px; width:100% ; height:10%;  border-top-left-radius:0.5em;  border-top-right-radius:0.5em; padding-top:4%;"><b>Details</b></p>
+                        <span style="text-align:center; padding:10%">
+                            <p>Model No:&nbsp;{{ q.id }}</p>
+                            <hr><p>Availability:&nbsp;
+                                {% if q.product_stock == True %}
+                                In stock</p>
+                                {% else %}
+                                Out of stock</p>
+                                {% endif %}
+
+                            </p>
+                            <hr><p>Price:&nbsp;{{ q.product_price }}</p><hr><br><br>
+                            <a href="/mutech/contact/"><button  type="button" class="btn btn-primary" style="background-color:hsl(208, 56%, 46%); color:white;">Apply for product</button></a>
+                        </span>    
 
                         </div>
                     </div>
+                </div>
+
+                <div class="row">
+                    <h3>Product Description</h3>
+                    <p style="text-align:justify">{{ q.product_desc }}</p>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                            <i class="fa fa-times"></i> Close </button>
                 </div>
             </div>
         </div>
