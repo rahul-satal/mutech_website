@@ -35,6 +35,8 @@ class training(models.Model):
 	training_image = models.ImageField(upload_to="Images/Training")
 	training_desc = models.TextField(max_length=5000)
 	training_duration = models.CharField(max_length=50,default="2 Weeks")
+	training_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
+
 	training_price = models.IntegerField(default=2000)
 
 
@@ -49,6 +51,8 @@ class project(models.Model):
 	project_price = models.IntegerField(default=2000)
 	project_branch = models.ForeignKey(branch)
 	project_subbranch = models.ForeignKey(subbranch)
+	project_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
+
 
 	def __unicode__(self):              
         	return str(self.project_title)
@@ -60,6 +64,8 @@ class product(models.Model):
 	product_desc = models.TextField(max_length=5000)
 	product_stock = models.BooleanField(default=True)
 	product_price = models.IntegerField(default=2000)
+	product_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
+
 
 	def __unicode__(self):              
         	return self.product_title	

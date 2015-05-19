@@ -10,6 +10,21 @@
     <meta name="author" content="">
     <title>Home</title>
     <div>{% include "mutech/header.html" %}</div>
+   <!DOCTYPE html>
+   <script>
+$(document).ready(function(){
+    $("        ").click(function(){
+        $("").toggle();
+    });
+});
+
+ $("li").click(function(){    
+     $('.data').slideUp('slow');
+     $('#datai').slideDown('slow');
+
+   });
+</script>
+
     <style type="text/css">
         #slider_errow:hover{
                 color: #fff;
@@ -58,21 +73,21 @@
     </style>
 </head>
 <body>
-	<div class="midDiv col-md-12 col-sm-12 row" style="margin-left:0.0%; margin-top:5%; overflow: hidden;">
+    <div class="midDiv col-md-12 col-sm-12 row" style="margin-left:0.0%; margin-top:5%; overflow: hidden;">
 
-	<!-- Product Slider - START -->
-	<div class="row" style="margin-top:-5%">
-	<div class="col-md-1" style="margin-top:10%;">
+    <!-- Product Slider - START -->
+    <div class="row" style="margin-top:-5%">
+    <div class="col-md-1" style="margin-top:10%;">
         <div class="controls pull-right hidden-xs" style="text-align: center;">
             <a id="slider_errow" class="left fa fa-chevron-left btn btn" href="#carousel-example" data-slide="prev" style="color:black;vertical-align: middle"></a>
         </div>
-	</div>
+    </div>
 
 {% if slider_list %}
     {% for q in slider_list %}
                    
 
-	<div class="container col-md-10">
+    <div class="container col-md-10">
     <div class="row" style="height:350px">
         <div id="carousel-example" class="carousel slide hidden-xs " data-ride="carousel">
             <!-- Wrapper for slides -->
@@ -160,8 +175,8 @@
                                 {% if news_list %}
                                     {% for q in news_list %}
                                         <ul class="list-unstyled" >
-                                            <a class="newsArticle_list" data-toggle="collapse" data-target="#news{{ q.id }}" aria-expanded="false" aria-controls="collapseExample" data-dismiss=".newsArticle_list"> <li>{{ q.news_title }}</li></a>
-                                            <div class="collapse" id="news{{ q.id }}">
+                                            <a class="newsArticle_list" data-toggle="collapse" data-target="#news{{ q.id }}" aria-expanded="false" aria-controls="collapseExample" data-dismiss=".newsArticle_list"> <li class="title">{{ q.news_title }}</li></a>
+                                            <div class="collapse data" id="news{{ q.id }}">
                                               <div class="well">
                                                 {{ q.news_desc|slice:":155"  }}
                                                 <a href="#" style="color:#0D77E2;">detail</a>
@@ -204,5 +219,24 @@
     </div>
 
 <div class="row" style="margin-top:0px">{% include "mutech/footer.html" %}</div>
+</body>
+</html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle();
+    });
+});
+</script>
+</head>
+<body>
+
+<p>This is a paragraph.</p>
+
+<button>Toggle between hide() and show()</button>
+
 </body>
 </html>
