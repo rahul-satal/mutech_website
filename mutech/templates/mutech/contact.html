@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Contactus</title>
-	<div>{% include "mutech/header.html" %}</div>
-	<script type="text/javascript" src="{%static 'mutech/js/jquery-1.10.2.min.js' %}"></script>
+    <script type="text/javascript" src="{%static 'mutech/js/jquery-1.10.2.min.js' %}"></script>
     <!--<script type="text/javascript" src="{%static 'mutech/js/MyFormValidation.js' %}"></script>-->
 
 </head>
 <body>
+<div>{% include "mutech/header.html" %}</div>
 <div class="midDiv">
 <script>
 function fun() {
@@ -21,11 +21,7 @@ function fun() {
 }
 </script>
 
-
-
-
-
-		<!-- Contact with Map - START -->
+        <!-- Contact with Map - START -->
 <div class="container">
     <div class="row" style="margin-top:1%;">
         <div class="col-md-6">
@@ -136,39 +132,36 @@ function fun() {
     }
 </style>
 <script type="text/javascript">
-	function fun{
-		alert("Hello");
-	}
+    function fun{
+        alert("Hello");
+    }
 </script>
 
 <script>
-function myFunction() {
-    document.getElementById("demo").innerHTML = "Hello World";
-}
-function onlyChars(event)
-{
-    var e =event;
-    var charCode = e.which || e.keyCode;
-    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 8 || charCode == 9)
-        return true;
-    else 
-        return false;
-}
-function onlyNumbers(event)             
-{
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "Hello World";
+    }
+    function onlyChars(event)
+    {
+        var e =event;
+        var charCode = e.which || e.keyCode;
+        if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122) || charCode == 8 || charCode == 9)
+            return true;
+        else 
+            return false;
+    }
+    function onlyNumbers(event)             
+    {
         var e =event; 
-    var charCode = e.which || e.keyCode;
-
+        var charCode = e.which || e.keyCode;
             if ((charCode >= 48 && charCode <= 57) || charCode == 8 || charCode == 37 || charCode == 39 || charCode == 9) 
                  return true;
             else
                  return false;
-
-}
+    }
 </script>
-
-
 <!-- Contact with Map - END -->
+
 </div><!-- end of middiv -->
 <div>{% include "mutech/footer.html" %}</div>
 </body>

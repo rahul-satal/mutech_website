@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home</title>
-    <div>{% include "mutech/header.html" %}</div>
+
     <style type="text/css">
         #slider_errow:hover{
                 color: #fff;
@@ -58,151 +58,121 @@
     </style>
 </head>
 <body>
-	<div class="midDiv col-md-12 col-sm-12 row" style="margin-left:0.0%; margin-top:5%; overflow: hidden;">
+    <div>{% include "mutech/header.html" %}</div>
+    <div class="midDiv col-md-12 col-sm-12 row" style="margin-left:0.0%; margin-top:5%; overflow: hidden;">
 
-	<!-- Product Slider - START -->
-	<div class="row" style="margin-top:-5%">
-	<div class="col-md-1" style="margin-top:10%;">
-        <div class="controls pull-right hidden-xs" style="text-align: center;">
-            <a id="slider_errow" class="left fa fa-chevron-left btn btn" href="#carousel-example" data-slide="prev" style="color:black;vertical-align: middle"></a>
-        </div>
-	</div>
-
-{% if slider_list %}
-    {% for q in slider_list %}
-                   
-
-	<div class="container col-md-10">
-    <div class="row" style="height:350px">
-        <div id="carousel-example" class="carousel slide hidden-xs " data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <div class="row" style="height:1000px">
-                        <div class="col-sm-3" style="">
-                            <div>
-                                    <img id="slider_image" src="../../../media/{{q.slider_image1}}" class="img-responsive" alt="a" style="" />
-                              </div> 
-                        </div>
-                        <div class="col-sm-3" style="">
-                            <div>
-                                    <img id="slider_image" src="../../../media/{{q.slider_image2}}" class="img-responsive" alt="a" style="heigth:500px" />
-                              </div> 
-                        </div>
-                        <div class="col-sm-3" style="">
-                            <div>
-                                    <img id="slider_image" src="../../../media/{{q.slider_image3}}" class="img-responsive" alt="a" style="heigth:500px" />
-                              </div> 
-                        </div>
-                        <div class="col-sm-3" style="">
-                            <div>
-                                    <img id="slider_image" src="../../../media/{{q.slider_image4}}" class="img-responsive" alt="a" style="heigth:500px" />
-                              </div> 
+       <!--Slider - START -->
+       <div class="row" style="margin-top:-5%">
+           <div class="col-md-1" style="margin-top:10%;">
+                <div class="controls pull-right hidden-xs" style="text-align: center;">
+                    <a id="slider_errow" class="left fa fa-chevron-left btn btn" href="#carousel-example" data-slide="prev" style="color:black;vertical-align: middle"></a>
+                </div>
+           </div>
+            {% if slider_list %}
+                {% for q in slider_list %}
+                   <div class="container col-md-10">
+                        <div class="row" style="height:350px">
+                            <div id="carousel-example" class="carousel slide hidden-xs " data-ride="carousel">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="row" style="height:1000px">
+                                            <div class="col-sm-3" style="">
+                                                <img id="slider_image" src="../../../media/{{q.slider_image1}}" class="img-responsive" alt="a" style="" /> 
+                                            </div>
+                                            <div class="col-sm-3" style="">
+                                                <img id="slider_image" src="../../../media/{{q.slider_image2}}" class="img-responsive" alt="a" style="heigth:500px" /> 
+                                            </div>
+                                            <div class="col-sm-3" style="">
+                                                <img id="slider_image" src="../../../media/{{q.slider_image3}}" class="img-responsive" alt="a" style="heigth:500px" /> 
+                                            </div>
+                                            <div class="col-sm-3" style="">
+                                                <img id="slider_image" src="../../../media/{{q.slider_image4}}" class="img-responsive" alt="a" style="heigth:500px" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-sm-3" style="">
+                                                <img id="slider_image" src="../../../media/{{q.slider_image5}}" class="img-responsive" alt="a" style="heigth:500px; " />
+                                            </div>
+                                            <div class="col-sm-3" style="">
+                                                <img id="slider_image" src="../../../media/{{q.slider_image6}}" class="img-responsive" alt="a" style="heigth:500px" />
+                                            </div>
+                                            <div class="col-sm-3" style=";">
+                                                <img id="slider_image" src="../../../media/{{q.slider_image7}}" class="img-responsive" alt="a" style="heigth:500px" />
+                                            </div>
+                                            <div class="col-sm-3" style="">
+                                                <img id="slider_image" src="../../../media/{{q.slider_image8}}" class="img-responsive" alt="a" style="heigth:500px" /> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
+            {% endif %}      
+            <div class="controls pull-right hidden-xs col-md-1" style="margin-top:10%;">
+                <a id="slider_errow" class="right fa fa-chevron-right btn" href="#carousel-example" data-slide="next" style="color:black"></a>
+            </div>
+        </div><!--slider ends--><br>
 
-                <div class="item">
-                      <div class="row">
-                        <div class="col-sm-3" style="">
-                            <div>
-                                    <img id="slider_image" src="../../../media/{{q.slider_image5}}" class="img-responsive" alt="a" style="heigth:500px; " />
-                              </div> 
-                        </div>
-                        <div class="col-sm-3" style="">
-                            <div>
-                                    <img id="slider_image" src="../../../media/{{q.slider_image6}}" class="img-responsive" alt="a" style="heigth:500px" />
-                              </div> 
-                        </div>
-                        <div class="col-sm-3" style=";">
-                            <div>
-                                    <img id="slider_image" src="../../../media/{{q.slider_image7}}" class="img-responsive" alt="a" style="heigth:500px" />
-                              </div> 
-                        </div>
-                        <div class="col-sm-3" style="">
-                            <div>
-                                    <img id="slider_image" src="../../../media/{{q.slider_image8}}" class="img-responsive" alt="a" style="heigth:500px" />
-                              </div> 
-                        </div>
+
+        <!-- news and activities section start-->
+        <div class="row" style="padding-bottom:5%;">
+            <div class="col-md-1"></div>
+            
+            <div class="col-md-10 col-sm-10"  id="BothNewsArticle_div">
+                <div class="col-md-6 col-sm-6" style=" padding:0px; ">
+                    <div class="col-md-12 text-uppercase" id="news_div" style="">
+                        <span style="font-size:16px;margin-left: 5%; ">News</span>
                     </div>
-                </div>
-
-
-            </div>
-        </div>
-        </div>
-            </div>
-
-            {% endfor %}
-     {% endif %}      
-
-                            <div class="controls pull-right hidden-xs col-md-1" style="margin-top:10%;">
-                    <a id="slider_errow" class="right fa fa-chevron-right btn" href="#carousel-example"
-                            data-slide="next" style="color:black"></a>
-                </div>
-            </div><!--Top row ends--><br>
-
-
-                  
-                        
-                    
-    
-
-
-            <div class="row" style="padding-bottom:5%;">
-                <div class="col-md-1"></div>
-                <div class="col-md-10 col-sm-10"  id="BothNewsArticle_div">
-                    <div class="col-md-6 col-sm-6" style=" padding:0px; ">
-                        <div class="col-md-12 text-uppercase" id="news_div" style="">
-                        <span style="font-size:16px;margin-left: 5%; ">News</span></div>
-                        <div style="padding:15% 0 5%  20% ;">
-                            <p>News</p>
-                                {% if news_list %}
-                                    {% for q in news_list %}
-                                        <ul class="list-unstyled" >
-                                            <a class="newsArticle_list" data-toggle="collapse" data-target="#news{{ q.id }}" aria-expanded="false" aria-controls="collapseExample" data-dismiss=".newsArticle_list"> <li>{{ q.news_title }}</li></a>
-                                            <div class="collapse" id="news{{ q.id }}">
-                                              <div class="well">
+                    <div style="padding:15% 0 5%  20% ;">
+                        <p>News</p>
+                            {% if news_list %}
+                                {% for q in news_list %}
+                                    <ul class="list-unstyled" >
+                                        <a class="newsArticle_list" data-toggle="collapse" data-target="#news{{ q.id }}" aria-expanded="false" aria-controls="collapseExample" data-dismiss=".newsArticle_list"> <li>{{ q.news_title }}</li></a>
+                                        <div class="collapse" id="news{{ q.id }}">
+                                            <div class="well">
                                                 {{ q.news_desc|slice:":155"  }}
                                                 <a href="#" style="color:#0D77E2;">detail</a>
-                                              </div>
                                             </div>
-
-                                    {% endfor %}
-                                {% endif %}
-                                        </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-6 col-sm-6" style="padding:0px;">
-                        <div class="col-md-12 text-right text-uppercase" id="article_div" >
-                        <span style="font-size: 16px; margin-top:50px; margin-right: 5%; ">Activities</span></div>
-                        <div style="padding:15% 0 5% 15%">
-                            <p>Activities</p>
-                                {% if article_list %}
-                                    {% for q in article_list %}
-                                        <ul class="list-unstyled" >
-                                            <a class="newsArticle_list" data-toggle="collapse" data-target="#article{{ q.id }}" aria-expanded="false" aria-controls="collapseExample"> <li>{{ q.article_title }}</li></a>
-                                            <div class="collapse" id="article{{ q.id }}">
-                                              <div class="well">
-                                                {{ q.article_desc|slice:":155"  }}
-                                                <a href="#" style="color:#0D77E2;">detail</a>
-                                              </div>
-                                            </div>
-
-                                    {% endfor %}
-                                {% endif %}
-                                        </ul>
-                        </div>
+                                        </div>
+                                    </ul>
+                                {% endfor %}
+                            {% endif %}            
                     </div>
                 </div>
-                <div class="col-md-1"></div>     
+
+                <div class="col-md-6 col-sm-6" style="padding:0px;">
+                    <div class="col-md-12 text-right text-uppercase" id="article_div" >
+                        <span style="font-size: 16px; margin-top:50px; margin-right: 5%; ">Activities</span>
+                    </div>
+                    <div style="padding:15% 0 5% 15%">
+                        <p>Activities</p>
+                            {% if article_list %}
+                                {% for q in article_list %}
+                                    <ul class="list-unstyled" >
+                                        <a class="newsArticle_list" data-toggle="collapse" data-target="#article{{ q.id }}" aria-expanded="false" aria-controls="collapseExample"> <li>{{ q.article_title }}</li></a>
+                                        <div class="collapse" id="article{{ q.id }}">
+                                            <div class="well">
+                                                {{ q.article_desc|slice:":155"  }}
+                                                <a href="#" style="color:#0D77E2;">detail</a>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                {% endfor %}
+                            {% endif %}            
+                    </div>
+                </div>
             </div>
+            
+            <div class="col-md-1"></div>     
+        </div><!-- end of news and activities-->
 
     </div><!--middiv ends-->
-    </div>
-
-<div class="row" style="margin-top:0px">{% include "mutech/footer.html" %}</div>
+<div class="row">{% include "mutech/footer.html" %}</div>
 </body>
 </html>
