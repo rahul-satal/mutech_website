@@ -23,6 +23,7 @@ def project_info(request):
 	context = {'branch_list':branch_list , 'subbranch_list':subbranch_list ,'project_list':project_list }
 	return render(request, 'mutech/project.html', context)
 
+
 '''
 def project_branch_info(request):
 	branch_list = branch.objects.all()
