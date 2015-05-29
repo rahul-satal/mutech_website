@@ -55,6 +55,9 @@
             height:300px;
             border:3px solid #737373;
         }
+        .content {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -133,9 +136,9 @@
                             {% if news_list %}
                                 {% for q in news_list %}
                                     <ul class="list-unstyled" >
-                                        <a class="newsArticle_list" data-toggle="collapse" data-target="#news{{ q.id }}" aria-expanded="false" aria-controls="collapseExample" data-dismiss=".newsArticle_list"> <li>{{ q.news_title }}</li></a>
+                                        <a class="newsArticle_list" data-toggle="collapse" data-target="#news{{ q.id }}" aria-expanded="true" aria-controls="collapseExample" data-dismiss=".newsArticle_list" onclick="toggleVisibility('news{{ q.id }}');"> <li>{{ q.news_title }}</li></a>
                                         <div class="collapse" id="news{{ q.id }}">
-                                            <div class="well">
+                                            <div class="well content" id="news{{ q.id }}">
                                                 {{ q.news_desc|slice:":155"  }}
                                                 <a href="#" style="color:#0D77E2;">detail</a>
                                             </div>
@@ -155,9 +158,9 @@
                             {% if article_list %}
                                 {% for q in article_list %}
                                     <ul class="list-unstyled" >
-                                        <a class="newsArticle_list" data-toggle="collapse" data-target="#article{{ q.id }}" aria-expanded="false" aria-controls="collapseExample"> <li>{{ q.article_title }}</li></a>
+                                        <a class="newsArticle_list" data-toggle="collapse" data-target="#article{{ q.id }}" aria-expanded="true" aria-controls="collapseExample" onclick="toggleVisibility('article{{ q.id }}');"> <li>{{ q.article_title }}</li></a>
                                         <div class="collapse" id="article{{ q.id }}">
-                                            <div class="well">
+                                            <div class="well content" id="article{{ q.id }}">
                                                 {{ q.article_desc|slice:":155"  }}
                                                 <a href="#" style="color:#0D77E2;">detail</a>
                                             </div>
@@ -174,5 +177,25 @@
 
     </div><!--middiv ends-->
 <div class="row">{% include "mutech/footer.html" %}</div>
+<!--extra javascript-->
+    <script type="text/javascript">
+
+    function toggleVisibility(selectedTab) {
+
+         // Get a list of your content divs
+         var content = document.getElementsByClassName('content');
+
+         // Loop through, hiding non-selected divs, and showing selected div
+         for(var i=0; i<content.length; i++) {
+              if(content[i].id == selectedTab) {
+                    content[i].style.display = 'block';
+              } else {
+                    content[i].style.display = 'none';
+              }
+         }
+
+    }
+    </script>
+
 </body>
 </html>
