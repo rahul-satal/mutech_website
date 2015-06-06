@@ -2,12 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="{% static 'mutech/css/index.css' %}" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="{% static 'bootstrap_template/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mutech/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/css/freelancer.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mutech/css/index.css' %}" rel="stylesheet" type="text/css">
     <title>Home</title>
 
     <style type="text/css">
@@ -177,6 +181,8 @@
 
     </div><!--middiv ends-->
 <div class="row">{% include "mutech/footer.html" %}</div>
+<script src="{% static 'mutech/js/jquery.min.js' %}"></script>
+<script src="{% static 'mutech/js/bootstrap.min.js' %}"></script>
 <!--extra javascript-->
     <script type="text/javascript">
 

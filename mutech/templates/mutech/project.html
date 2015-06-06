@@ -9,9 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Projects</title>
-    <link href="{% static 'mutech/css/project_dropdown_menu2.css' %}" rel="stylesheet">
-    <link href="{% static 'mutech/css/project_dropdown_menu1.css' %}" rel="stylesheet">
-    <link href="{% static 'mutech/css/agency.css' %}" rel="stylesheet">
+    <link href="{% static 'mutech/css/project_dropdown_menu2.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mutech/css/project_dropdown_menu1.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mutech/css/agency.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mutech/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/css/freelancer.css' %}" rel="stylesheet" type="text/css">
     <style type="text/css">
         .sidebar ul li {
             border-bottom: 1px solid #e7e7e7;
@@ -80,7 +84,7 @@
                                     <div class="col-md-4 col-sm-12">
                                         <section id="portfolio" class="bg-light-gray" style="padding:0px;">           
                                             <div class="col-md-12 col-sm-12 portfolio-item">
-                                                <a href="#{{ q.project_title }}" class="portfolio-link" data-toggle="modal" >
+                                                <a href="#{{ q.id }}" class="portfolio-link" data-toggle="modal" >
                                                     <div class="portfolio-hover">
                                                         <div class="portfolio-hover-content">
                                                             <i class="fa fa-plus fa-3x"></i>
@@ -101,7 +105,7 @@
                                         <div class="col-md-4 col-sm-12">
                                             <section id="portfolio" class="bg-light-gray" style="padding-top:0px">           
                                                 <div class="col-md-12 col-sm-12 portfolio-item">
-                                                    <a href="#{{ q.project_title }}" class="portfolio-link" data-toggle="modal" >
+                                                    <a href="#{{ q.id }}" class="portfolio-link" data-toggle="modal" >
                                                         <div class="portfolio-hover">
                                                             <div class="portfolio-hover-content">
                                                                 <i class="fa fa-plus fa-3x"></i>
@@ -129,7 +133,7 @@
     {% if project_list %}
         {% for q in project_list %}
             <!-- Modal-->
-            <div class="portfolio-modal modal fade" id="{{ q.project_title }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="portfolio-modal modal fade" id="{{ q.id }}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-content">
                     <div class="close-modal" data-dismiss="modal">
                         <div class="lr">
@@ -172,7 +176,7 @@
             </div><!-- end of modal-->
         {% endfor %} 
     {% endif %}
-
+    <div>{% include "mutech/footer.html" %}</div>
     <!-- jQuery -->
     <script src="{% static 'mutech/js/jquery.min.js' %}"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -181,6 +185,6 @@
     <script src="{% static 'mutech/js/metisMenu.min.js' %}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{% static 'mutech/js/sb-admin-2.js' %}"></script>
-<div>{% include "mutech/footer.html" %}</div>
+
 </body>
 </html>

@@ -10,6 +10,10 @@
     <title>Training</title>
     <link href="{% static 'mutech/css/agency.css' %}" rel="stylesheet">
     <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap_template/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mutech/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/css/freelancer.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div>{% include "mutech/header.html" %}</div>
@@ -25,66 +29,34 @@
             <div class="row" style="padding-bottom:5%;">
                 <div class="col-md-1"></div>
             
-                <div class="col-md-10 col-sm-10"  id="BothNewsArticle_div">
-                    <div class="col-md-6 col-sm-6" style=" padding:0px; ">
+                <div class="col-md-10 col-sm-10"  id="BothNewsArticle_div" style=" padding:0px; ">
                         <div class="col-md-12 text-uppercase" id="news_div" style="">
-                            <span style="font-size:16px;margin-left: 5%; ">Training</span>
+                            <h5 style="font-size:16px;margin-left: 5%; ">Training & Workshop Cources </h5>
                         </div>
-                        <div style="padding:15% 0 5%  20% ;">
+                        <div style="padding:5% 0% 0%  10%;">
                                 {% if training_list %}
                                     {% for q in training_list %}
-                                        <ul class="list-unstyled" >
-                                            <a class="newsArticle_list" data-toggle="collapse" data-target="#news{{ q.id }}" aria-expanded="false" aria-controls="collapseExample" data-dismiss=".newsArticle_list"> <li>{{ q.training_title }}</li></a>
-                                            <div class="collapse" id="news{{ q.id }}">
-                                                <div class="well">
-                                                    {{ q.training_desc|slice:":155"  }}
-                                                    <a href="#" style="color:#0D77E2;">detail</a>
-                                                </div>
-                                            </div>
+                                        <ul class="list-unstyled">
+                                            <a href="#{{ q.id }}" class="portfolio-link" data-toggle="modal" style=" color:hsl(210, 29%, 24%);"> <li>{{ q.training_title }}</li></a>
                                         </ul>
                                     {% endfor %}
                                 {% endif %}            
                         </div>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6" style="padding:0px;">
-                        <div class="col-md-12 text-right text-uppercase" id="article_div" >
-                            <span style="font-size: 16px; margin-top:50px; margin-right: 5%; ">Workshop</span>
-                        </div>
-                        <div style="padding:15% 0 5% 15%">
-                                {% if training_list %}
-                                    {% for q in training_list %}
-                                        <ul class="list-unstyled" >
-                                            <a class="newsArticle_list" data-toggle="collapse" data-target="#article{{ q.id }}" aria-expanded="false" aria-controls="collapseExample"> <li>{{ q.training_title }}</li></a>
-                                            <div class="collapse" id="article{{ q.id }}">
-                                                <div class="well">
-                                                    {{ q.training_desc|slice:":155"  }}
-                                                    <a href="#" style="color:#0D77E2;">detail</a>
-                                                </div>
-                                            </div>
-                                        </ul>
-                                    {% endfor %}
-                                {% endif %}            
-                        </div>
-                    </div>
                 </div>
             
             <div class="col-md-1"></div>     
         </div><!-- end of news and activities-->
 
         </div><!-- /.container -->
-    </div><!-- midDiv ends -->
+    </div><!-- midDiv ends -->   
 
-<div>{% include "mutech/footer.html" %}</div>   
-
-    
 
 <!-- Modal content starts  -->
 
 {% if training_list %}
     {% for q in training_list %}
         <!-- Portfolio Modal 1 -->
-        <div class="portfolio-modal modal fade" id="{{ q.training_title }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="{{ q.id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
                     <div class="lr">
@@ -95,29 +67,6 @@
                     <div class="row">
                         <h2>{{ q.training_title }}</h2>
                     </div>
-                    <div class="row" style="margin-top:2%">
-                        <div class="col-lg-6 col-sm-6 col-lg-offset-">
-                            <div class="modal-body">
-                                <img class="img-responsive img-centered" src="../../../media/{{q.training_image}}" alt="image" style="width:80%; height:80%">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-sm-2 "></div>
-
-                        <div class="col-lg-4 col-sm-4 col-lg-offset-" style="border:1px solid transparent;">
-                            <div style="border:1px solid black; height:400px;width:250px; border-top-left-radius:0.8em; border-top-right-radius:0.8em; padding:0% 0% 0% 0%;margin:0% 0% 0% 0%">
-                                <p class="text-uppercase"  style="text-align:center;background-color:hsl(210, 29%, 24%);color:white;font-size:16px; width:100% ; height:10%;  border-top-left-radius:0.5em;  border-top-right-radius:0.5em; padding-top:4%;"><b>Details</b></p>
-                                <span style="text-align:center; padding:10%">
-                                    <p>Training Id:&nbsp;{{ q.id }}</p>
-                                    <hr><p>Duration:&nbsp;{{ q.training_duration }}
-                                    </p>
-                                    <hr><p>Price:&nbsp;{{ q.training_price }}</p><hr><br><br>
-                                    <a href="/mutech/contact/"><button  type="button" class="btn btn-primary" style="background-color:hsl(208, 56%, 46%); color:white;">Apply for Training</button></a>
-                                </span>    
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <p style="text-align:justify">{{ q.training_desc }}</p>
                         <button type="button" class="btn btn-primary" data-dismiss="modal">
@@ -131,6 +80,9 @@
     {% endfor %} 
 {% endif %}
 <!-- end of the modal-->
+
+<div>{% include "mutech/footer.html" %}</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
     console.log("yes");
@@ -138,8 +90,9 @@
         var a = document.getElementById('vertical_nav').getElementsByTagName('a');
         for(i = 0; i<10; i++)
             alert(a[i]);
-        
        })
 </script>
+<script src="{% static 'mutech/js/jquery.min.js' %}"></script>
+<script src="{% static 'mutech/js/bootstrap.min.js' %}"></script>
 </body>
 </html>

@@ -8,7 +8,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>About us</title>
-    <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet">
+    <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mutech/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/css/freelancer.css' %}" rel="stylesheet" type="text/css">
     <style>
         .team_img{
             max-width:304;
@@ -108,5 +112,7 @@
         {% endif %}
     </div>             
     <div>{% include "mutech/footer.html" %}</div>
+    <script src="{% static 'mutech/js/jquery.min.js' %}"></script>
+    <script src="{% static 'mutech/js/bootstrap.min.js' %}"></script>
 </body>
 </html>

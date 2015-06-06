@@ -32,11 +32,9 @@ class subbranch(models.Model):
 
 class training(models.Model):
 	training_title = models.CharField(max_length=50)
-	training_image = models.ImageField(upload_to="Images/Training")
 	training_desc = models.TextField(max_length=5000)
 	training_duration = models.CharField(max_length=50,default="2 Weeks")
 	training_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
-
 	training_price = models.IntegerField(default=2000)
 
 
@@ -74,7 +72,7 @@ class contactus(models.Model):
 	fname = models.CharField(max_length=50)
 	lname = models.CharField(max_length=50)
 	email = models.EmailField(max_length=50)
-	phone_no = models.IntegerField(max_length=10)
+	phone_no = models.IntegerField(max_length=13)
 	#phone_no = models.IntegerField(max_length=10,blank=True,validators=[RegexValidator(regex='^.{10}$', message='Mobile no has to be 10 digits long', code='nomatch')])
 	message = models.TextField(max_length=5000)
 

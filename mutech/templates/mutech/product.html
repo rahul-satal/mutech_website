@@ -8,8 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Products</title>
-    <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet">
-    <link href="{% static 'mutech/css/agency.css' %}" rel="stylesheet">
+    <link href="{%static 'mutech/modern-business.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mutech/css/agency.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'mutech/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap_template/css/freelancer.css' %}" rel="stylesheet" type="text/css">
     <style>
     .product_schema{
         padding-left:3%;
@@ -31,7 +35,7 @@
             <h2 align="center" style="margin-bottom:2%;margin-top:-2%;">Products</h2>
             <div class="row" style="color:hsl(360, 71%, 42%);font-size:120%"><b>
                 <div class="col-md-2 product_schema">Image</div>
-                <div class="col-md-1 ">Model#</div>
+                <!--<div class="col-md-1 ">Model#</div>-->
                 <div class="col-md-6 ">Description</div>
                 <div class="col-md-2 ">Availability</div>
                 <div class="col-md-1 ">Pricing</div></b>
@@ -46,11 +50,11 @@
                         <div class="row" style="background-color:hsl(0, 0%, 76%); font-size:150%;padding:1%;">
                     {% endif %}
 
-                    <a href="#{{ q.product_title }}" class="portfolio-link" data-toggle="modal" style="color:hsl(210, 29%, 24%)">
+                    <a href="#{{ q.id }}" class="portfolio-link" data-toggle="modal" style="color:hsl(210, 29%, 24%)">
                         <div class="col-md-2">
                             <img src="../../../media/{{q.product_image|slice:":3"}}" class="img-responsive img-rounded" alt="" style="width:80%;height:100px;padding-left:-10%">
                         </div>
-                        <div class="col-md-1">{{ q.id }}</div>
+                        <!--<div class="col-md-1">{{ q.id }}</div>-->
                         <div class="col-md-6">
                             <h4 style="color:hsl(31, 100%, 39%)">{{ q.product_title }}</h4>
                             <span style="font-size:85%">{{ q.product_desc|slice:":100" }}...</span>
@@ -81,7 +85,7 @@
     {% if product_list %}
         {% for q in product_list %}
         <!-- Portfolio Modal 1 -->
-        <div class="portfolio-modal modal fade" id="{{ q.product_title }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="{{ q.id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
                     <div class="lr">
@@ -141,6 +145,8 @@
 <!-- end of the modal-->
 <div>{% include "mutech/footer.html" %}</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{% static 'mutech/js/jquery.min.js' %}"></script>
+<script src="{% static 'mutech/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript">
     console.log("yes");
     $(document).ready(function(){
