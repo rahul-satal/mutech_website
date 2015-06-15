@@ -48,7 +48,7 @@ class project(models.Model):
 	project_duration = models.CharField(max_length=50,default="2 Weeks")
 	project_price = models.IntegerField(default=2000)
 	project_branch = models.ForeignKey(branch)
-	project_subbranch = models.ForeignKey(subbranch)
+	project_subbranch = models.ForeignKey(subbranch,blank=True)
 	project_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
 
 
