@@ -60,11 +60,10 @@ WSGI_APPLICATION = 'mutech_website.wsgi.application'
 DATABASES = {
    'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mutech_db',
-        'USER': 'root',
+        'NAME': 'mutechrobotics$mutech_db',
+        'USER': 'mutechrobotics',
         'PASSWORD':'root',
-        'HOST': '',
-        'PORT': '',
+        'HOST': 'mysql.server',
     }
 }
 
