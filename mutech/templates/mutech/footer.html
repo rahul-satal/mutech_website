@@ -1,55 +1,72 @@
-    {% load staticfiles %}
-    <link href="{% static 'mutech/footer.css'%}" rel="stylesheet" type="text/css">
-   <!-- <nav class="navbar navbar-default navbar-fixed-bottom row"> -->
-   <style type="text/css">
-        a, a:hover, a:focus, a:active, a.active {
-        color: #AEAEAE;}
+{% load staticfiles %}
 
-        @media screen and (max-width: 1290px) {
-            img{width:100px;}
-        }  
-        .label-default{
-        background-color: #2C3E50;
-        }  
-   </style>     
-    
-    
- 
-<!-- // -->
-    
-    <div class="row" style="background-color:#2C3E50;">
-        <div class="col-md-4"><center>
-        <h4 style="color:white;"> <span class="label label-default">Visit counter</span></h4>
-            <!-- hitwebcounter Code START -->
-            <a href="#"><br>
-            <img src="http://hitwebcounter.com/counter/counter.php?page=6031565&style=0005&nbdigits=5&type=page&initCount=1000" title="Visitors count" Alt="No of Visitors"   border="0" class="img-responsive" >
-            </a><br/>
-            <!-- hitwebcounter.com -->
-            <a href="http://www.hitwebcounter.com/" title="Web Counter Hits" 
-            target="_blank" style="font-family: Arial, Helvetica, sans-serif; 
-            font-size: 10px; color: #6E6A68; text-decoration: none ;">
-            <em>Web Counter Hits</em>
-            </a>  
-            </center> 
-        </div>
-        <div  class="col-md-4"><center>
-            <h4 style="color:white;"> <span class="label label-default">Around the Web</span></h4>
-            <br />
-            <a href="https://www.facebook.com/shiv.dangi.52" target="_blank"><i id="social" class="fa fa-facebook-square fa-3x social-fb"></i></a>
-            <a href="https://twitter.com/bootsnipp" target="_blank"><i id="social" class="fa fa-twitter-square fa-3x social-tw"></i></a>
-            <a href="https://plus.google.com/+Bootsnipp-page" target="_blank"><i id="social" class="fa fa-google-plus-square fa-3x social-gp"></i></a>
-            <a href="mailto:bootsnipp@gmail.com" target="_blank"><i id="social" class="fa fa-envelope-square fa-3x social-em"></i></a>
-            <a href="mailto:bootsnipp@gmail.com" target="_blank"><i id="social" class="fa fa-linkedin-square fa-3x social-li"></i></a></center>
-        </div>
-        <div class="col-md-4"><center>
-            <h4 style="color:white;"> <span class="label label-default">About Developers</span></h4><br>
-            <h5 style="color:white;text-transform: capitalize;" > <span class="label label-default" style=" font-size: 85%;">
-                Rahul satal<br>
-                Shivshankar Pindoriya<br>
-            </span></h5>
-            </center>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Get in touch with us</h5>
+                    <address>
+                    <strong>411-A silver Mall</strong><br>
+                     R.N.T. Marg Indore (M.P.) India<br>
+                     Someplace 16425 Earth </address>
+                    <p>
+                        <i class="icon-phone"></i> +91-8878100400 , +91-7828424530 <br>
+                        <i class="icon-envelope-alt"></i> info@mutechrobotics.com
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Pages</h5>
+                    <ul class="link-list">
+                        <li><a href="/mutech/aboutus/">About Us</a></li>
+                        <li><a href="/mutech/industrial_project/">Projects / Industrial Projects</a></li>
+                        <li><a href="/mutech/student_project/">Projects / Student Projects</a></li>
+                        <li><a href="/mutech/training/">Services / Training</a></li>
+                        <li><a href="/mutech/workshop/">Services / Workshop</a></li>
+                        <li><a href="/mutech/contact/">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    <h5 class="widgetheading">Latest posts</h5>
+                    <ul class="link-list">
+                        <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                        <li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
+                        <li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="widget">
+                    
+                </div>
+            </div>
         </div>
     </div>
-    
+    <div id="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="copyright">
+                        <p>
+                            <span>&copy; All right reserved. By </span><a href="http://bootstraptaste.com" target="_blank">Institute</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="social-network">
+                        <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    

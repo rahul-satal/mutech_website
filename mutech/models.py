@@ -3,32 +3,13 @@ from django.core.validators import RegexValidator
 import warnings
 warnings.filterwarnings("ignore", "Field 'subbranch_title' doesn't have a default value")
 
-class news(models.Model):
-	news_title = models.CharField(max_length=50)
-	news_desc = models.TextField(max_length=20000)
 
-	def __unicode__(self):              # __str__ on Python 3
-        	return str(self.news_title)
-
-class article(models.Model):
-	article_title = models.CharField(max_length=50)
-	article_desc = models.TextField(max_length=20000)
-
-	def __unicode__(self):              
-        	return str(self.article_title)        	
-        	
 class branch(models.Model):
     branch_title = models.CharField(max_length=50)
 
-    def __unicode__(self):              
-        	return str(self.branch_title)	
+    def __unicode__(self):
+        	return str(self.branch_title)
 
-class subbranch(models.Model):
-	parentbranch = models.ForeignKey(branch)
-	subbranch_title = models.CharField(max_length=50)
-
-	def __unicode__(self):             
-        	return str(self.subbranch_title)	    	
 
 class training(models.Model):
 	training_title = models.CharField(max_length=50)
@@ -37,22 +18,39 @@ class training(models.Model):
 	training_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
 	training_price = models.IntegerField(default=2000)
 
-
-	def __unicode__(self):              
+	def __unicode__(self):
         	return str(self.training_title)
 
-class project(models.Model):
+class studentproject(models.Model):
 	project_title = models.CharField(max_length=50)
 	project_image = models.ImageField(upload_to="Images/Project")
 	project_desc = models.TextField(max_length=50000)
 	project_duration = models.CharField(max_length=50,default="2 Weeks")
 	project_price = models.IntegerField(default=2000)
 	project_branch = models.ForeignKey(branch)
-	project_subbranch = models.ForeignKey(subbranch,blank=True)
 	project_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
 
+	def __unicode__(self):
+        	return str(self.project_title)
 
-	def __unicode__(self):              
+class recentproject(models.Model):
+	project_title = models.CharField(max_length=50)
+	project_image = models.ImageField(upload_to="Images/Project")
+	project_desc = models.TextField(max_length=50000)
+	project_price = models.IntegerField(default=2000)
+	project_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
+
+	def __unicode__(self):
+        	return str(self.project_title)
+
+class industrialproject(models.Model):
+	project_title = models.CharField(max_length=50)
+	project_image = models.ImageField(upload_to="Images/Project")
+	project_desc = models.TextField(max_length=50000)
+	project_price = models.IntegerField(default=2000)
+	project_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
+
+	def __unicode__(self):
         	return str(self.project_title)
 
 
@@ -65,19 +63,21 @@ class product(models.Model):
 	product_pdf_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
 
 
-	def __unicode__(self):              
-        	return self.product_title	
+	def __unicode__(self):
+        	return self.product_title
 
 class contactus(models.Model):
 	fname = models.CharField(max_length=50)
-	lname = models.CharField(max_length=50)
+	subject = models.CharField(max_length=50)
 	email = models.EmailField(max_length=50)
-	phone_no = models.IntegerField(max_length=13)
+	phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+	phone_no = models.CharField(validators=[phone_regex], max_length=15, blank=True)
+	#phone_no = models.IntegerField(max_length=13)
 	#phone_no = models.IntegerField(max_length=10,blank=True,validators=[RegexValidator(regex='^.{10}$', message='Mobile no has to be 10 digits long', code='nomatch')])
 	message = models.TextField(max_length=5000)
 
-	def __unicode__(self):              
-        	return str(self.fname)  
+	def __unicode__(self):
+        	return str(self.fname)
 
 
 class aboutus(models.Model):
@@ -88,8 +88,8 @@ class aboutus(models.Model):
 	team2_image = models.ImageField(upload_to="Images/Aboutus")
 	team3_image = models.ImageField(upload_to="Images/Aboutus")
 
-	def __unicode__(self):             
-        	return self.aboutus_title	
+	def __unicode__(self):
+        	return self.aboutus_title
 
 class slider(models.Model):
 	slider_title = models.CharField(max_length=50)
@@ -97,12 +97,8 @@ class slider(models.Model):
 	slider_image2 = models.ImageField(upload_to="Images/Slider/")
 	slider_image3 = models.ImageField(upload_to="Images/Slider/")
 	slider_image4 = models.ImageField(upload_to="Images/Slider/")
-	slider_image5 = models.ImageField(upload_to="Images/Slider/")
-	slider_image6 = models.ImageField(upload_to="Images/Slider/")
-	slider_image7 = models.ImageField(upload_to="Images/Slider/")
-	slider_image8 = models.ImageField(upload_to="Images/Slider/")
-	def __unicode__(self):              
-        	return self.slider_title	        	
 
-	
+	def __unicode__(self):
+        	return self.slider_title
+
 
