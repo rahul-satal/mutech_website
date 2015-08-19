@@ -23,11 +23,22 @@
 
 <!-- style for contact page -->
 <style>
-    .map {
-        min-width: 300px;
-        min-height: 225px;
+    .map_container{
+        position: relative;
         width: 100%;
-        height: 100%;
+        min-height: 205px;
+        max-height: 205px;
+        padding-bottom: 43%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+    }
+
+    .map_container .map{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
     }
 
     .header {
@@ -125,7 +136,8 @@ function fun() {
                                     Email: info@mutechrobotics.com<br />
                                     </div>
                                     <hr style="margin-top: 30px;" />
-                                    <div id="map1" class="map">
+                                    <div class="map_container">
+                                        <div id="map1" class="map"></div>
                                     </div>
                                 </div>
                             </div>

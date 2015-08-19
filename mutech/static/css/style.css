@@ -161,7 +161,7 @@ header .navbar {
 }
 
 header .navbar-nav > li  {
-    padding-bottom: 30px;
+    padding-bottom: 0px;
     padding-top: 30px;
 }
 

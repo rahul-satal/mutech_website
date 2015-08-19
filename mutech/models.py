@@ -96,12 +96,35 @@ class ourteam(models.Model):
 class slider(models.Model):
 	slider_title = models.CharField(max_length=50)
 	slider_image1 = models.ImageField(upload_to="Images/Slider/")
+	image1_quote = models.TextField(max_length=500,default="quote for image1")
 	slider_image2 = models.ImageField(upload_to="Images/Slider/")
+	image2_quote = models.TextField(max_length=500,default="quote for image2")
 	slider_image3 = models.ImageField(upload_to="Images/Slider/")
+	image3_quote = models.TextField(max_length=500,default="quote for image3")
 	slider_image4 = models.ImageField(upload_to="Images/Slider/")
+	image4_quote = models.TextField(max_length=500,default="quote for image4")
 
 	def __unicode__(self):              
         	return self.slider_title	        	
 
+class homepagequote(models.Model):
+	studentproject_quote = models.TextField(max_length=500,default="quote for image1")
+	industrialproject_quote = models.TextField(max_length=500,default="quote for image1")
+	training_quote = models.TextField(max_length=500,default="quote for image1")
+	workshop_quote = models.TextField(max_length=500,default="quote for image1")
+	"""docstring for homepagequote"""
+	def __unicode__(self):
+		return self.studentproject_quote
+
+
+class latestpost(models.Model):
+	post_title = models.CharField(max_length=100)
+	post_link = models.CharField(max_length=200,default="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw")
+	
+	"""docstring for latestpost"""
+	def __unicode__(self):
+	    return self.post_title
+		
+		
 	
 

@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
                 ('aboutus_title', models.CharField(max_length=50)),
                 ('aboutus_desc_paragraph1', models.TextField(default=b'first paragraph', max_length=5000)),
                 ('aboutus_desc_paragraph2', models.TextField(default=b'second paragraph', max_length=5000)),
+                ('aboutus_desc_paragraph3', models.TextField(default=b'third paragraph', max_length=5000)),
                 ('aboutus_image', models.ImageField(upload_to=b'Images/Aboutus')),
             ],
         ),
@@ -40,6 +41,16 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='homepagequote',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('studentproject_quote', models.TextField(default=b'quote for image1', max_length=500)),
+                ('industrialproject_quote', models.TextField(default=b'quote for image1', max_length=500)),
+                ('training_quote', models.TextField(default=b'quote for image1', max_length=500)),
+                ('workshop_quote', models.TextField(default=b'quote for image1', max_length=500)),
+            ],
+        ),
+        migrations.CreateModel(
             name='industrialproject',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -48,6 +59,14 @@ class Migration(migrations.Migration):
                 ('project_desc', models.TextField(max_length=50000)),
                 ('project_price', models.IntegerField(default=2000)),
                 ('project_pdf_link', models.CharField(default=b'https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw', max_length=200)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='latestpost',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('post_title', models.CharField(max_length=100)),
+                ('post_link', models.CharField(default=b'https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw', max_length=200)),
             ],
         ),
         migrations.CreateModel(
@@ -76,9 +95,13 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('slider_title', models.CharField(max_length=50)),
                 ('slider_image1', models.ImageField(upload_to=b'Images/Slider/')),
+                ('image1_quote', models.TextField(default=b'quote for image1', max_length=500)),
                 ('slider_image2', models.ImageField(upload_to=b'Images/Slider/')),
+                ('image2_quote', models.TextField(default=b'quote for image2', max_length=500)),
                 ('slider_image3', models.ImageField(upload_to=b'Images/Slider/')),
+                ('image3_quote', models.TextField(default=b'quote for image3', max_length=500)),
                 ('slider_image4', models.ImageField(upload_to=b'Images/Slider/')),
+                ('image4_quote', models.TextField(default=b'quote for image4', max_length=500)),
             ],
         ),
         migrations.CreateModel(
@@ -101,7 +124,6 @@ class Migration(migrations.Migration):
                 ('training_desc', models.TextField(max_length=5000)),
                 ('training_duration', models.CharField(default=b'2 Weeks', max_length=50)),
                 ('training_pdf_link', models.CharField(default=b'https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw', max_length=200)),
-                ('training_price', models.IntegerField(default=2000)),
             ],
         ),
         migrations.CreateModel(
@@ -112,7 +134,6 @@ class Migration(migrations.Migration):
                 ('workshop_desc', models.TextField(max_length=5000)),
                 ('workshop_duration', models.CharField(default=b'2 Weeks', max_length=50)),
                 ('workshop_pdf_link', models.CharField(default=b'https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkcmNoaXRyYWRoYXdhbGV8Z3g6NDQzYzkwN2Y3YzY2ZWRjYw', max_length=200)),
-                ('workshop_price', models.IntegerField(default=2000)),
             ],
         ),
     ]

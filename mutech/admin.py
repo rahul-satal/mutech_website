@@ -13,4 +13,6 @@ admin.site.register(aboutus)
 admin.site.register(ourteam)
 admin.site.register(contactus)
 admin.site.register(slider)
+admin.site.register(homepagequote)
+admin.site.register(latestpost)
 
